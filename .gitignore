@@ -130,3 +130,5 @@ build
 .yarn/install-state.gz
 .pnp.*
 .vscode/settings.json
+
+storybook-static
