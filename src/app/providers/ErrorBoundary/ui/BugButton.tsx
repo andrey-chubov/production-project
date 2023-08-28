@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button } from 'shared/ui/Button/Button';
 
 // Тестовый компонент
 export const BugButton = () => {
@@ -17,5 +17,8 @@ export const BugButton = () => {
   }, [error]);
 
   return (
-    <Button onClick={onThrow} theme={ThemeButton.SECONDARY}> {t('trow Error')} </Button>);
+    <Button onClick={onThrow}>
+      {t('trow Error')}
+    </Button>
+  );
 };
