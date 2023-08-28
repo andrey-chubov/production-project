@@ -40,6 +40,7 @@ module.exports = {
     'jsx-quotes': [2, 'prefer-single'],
     'i18next/no-literal-string': ['error', { markupOnly: true, ignoreAttribute: ['to', 'data-testid'] }],
     'max-len': ['error', { code: 120, tabWidth: 2, ignoreComments: true }],
+    'linebreak-style': ['error', 'windows']
   },
   globals: {
     __IS_DEV__: true,
