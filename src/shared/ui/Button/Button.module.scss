@@ -14,7 +14,6 @@
 
 .outline {
   border: 1px solid var(--primary-color);
-  
   background: none;
   color: var(--primary-color);
 }
@@ -24,6 +23,7 @@
   color: var(--primary-color);
   border: none;
 }
+
 .backgroundInverted {
   background: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
@@ -39,11 +39,13 @@
   width: var(--font-line-m);
   font: var(--font-m);
 }
+
 .square.size_l {
   height: var(--font-line-l);
   width: var(--font-line-l);
   font: var(--font-l);
 }
+
 .square.size_xl {
   height: var(--font-line-xl);
   width: var(--font-line-xl);
@@ -53,9 +55,11 @@
 .size_m {
   font: var(--font-m);
 }
+
 .size_l {
   font: var(--font-l);
 }
+
 .size_xl {
   font: var(--font-xl);
 }

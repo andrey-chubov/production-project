@@ -6,8 +6,6 @@
   transition: width 0.3s;
 }
 
-
-
 .switchers {
   position: absolute;
   bottom: 20px;
@@ -15,13 +13,10 @@
   justify-content: center;
   width: 100%;
 }
+
 .lang {
   margin-left: 20px;
 }
-
-
-
-
 
 .collapseButton {
   position: absolute;
@@ -43,7 +38,7 @@
 }
 
 .links {
- margin-left: 10px;
+  margin-left: 10px;
   opacity: 1;
 }
 
@@ -66,8 +61,7 @@
 
   .links {
     opacity: 0;
-    transition: .2s opacity;
+    transition: 0.2s opacity;
     width: 0;
   }
 }
-

@@ -1,11 +1,11 @@
 import { fireEvent, screen } from '@testing-library/react';
 
-import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
+import { ComponentRender } from 'shared/lib/tests/ComponentRender/ComponentRender';
 import { Sidebar } from './Sidebar';
 
 describe('Sidebar TEST', () => {
   test('with no have param', () => {
-    renderWithTranslation(<Sidebar />);
+    ComponentRender(<Sidebar />);
     const btn = screen.getByTestId('toggleBtn');
     fireEvent.click(btn);
     expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
