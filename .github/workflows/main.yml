@@ -22,14 +22,19 @@ jobs:
         run: npm install
       - name: Build production
         run: yarn build:prod
+        if: always()
       - name: Linting typescript
         run: npm run lint:ts
+        if: always()
       - name: Linting scss
         run: npm run lint:scss
+        if: always()
       - name: Unit test
         run: npm run test:unit
+        if: always()
       - name: Build storybook
         run: yarn build:storybook
+        if: always()
       - name: Loki test
         run: npm run test:ui:ci
         

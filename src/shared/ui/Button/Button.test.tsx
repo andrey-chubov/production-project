@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 describe('Button TEST', () => {
   test('with no have param', () => {
@@ -7,7 +7,7 @@ describe('Button TEST', () => {
     expect(screen.getByText('Test')).toBeInTheDocument();
   });
   test('with one param', () => {
-    render(<Button theme={ThemeButton.CLEAR}>Test</Button>);
+    render(<Button theme={ButtonTheme.CLEAR}>Test</Button>);
     expect(screen.getByText('Test')).toHaveClass('clear');
   });
 });
