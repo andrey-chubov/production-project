@@ -8,6 +8,8 @@
    "Страница не найдена": "Not found page",
    "Не предвиденная ошибка": "Something wrong",
    "Обновить страницу": "Refresh page",
-   "trow Error": "trow Error"
+   "trow Error": "trow Error",
+   "increment": "increment",
+    "decrement": "decrement"
 
 }
