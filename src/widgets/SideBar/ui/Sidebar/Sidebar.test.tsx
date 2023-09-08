@@ -5,7 +5,7 @@ import { Sidebar } from './Sidebar';
 
 describe('Sidebar TEST', () => {
   test('with no have param', () => {
-    ComponentRender(<Sidebar />);
+    ComponentRender(<Sidebar />, { initialState: { counter: { value: 10 } } });
     const btn = screen.getByTestId('toggleBtn');
     fireEvent.click(btn);
     expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
