@@ -10,6 +10,11 @@
    "Обновить страницу": "Refresh page",
    "trow Error": "trow Error",
    "increment": "increment",
-    "decrement": "decrement"
+    "decrement": "decrement",
+      "Введите имя": "username",
+  "Введите пароль": "password",
+  "Форма авторизации": "Login form",
+   "Выйти": "Logout",
+   "error": "username or password not valide"
 
 }
