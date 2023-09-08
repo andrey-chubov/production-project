@@ -4,9 +4,9 @@ import cls from './LoginModal.module.scss';
 import { LoginForm } from '../LoginForm/LoginForm';
 
 interface LoginModalProps {
-className?: string;
-isOpen: boolean;
-onClose: ()=>void;
+  className?: string;
+  isOpen: boolean;
+  onClose: ()=>void;
 }
 
 export const LoginModal = (props: LoginModalProps) => {

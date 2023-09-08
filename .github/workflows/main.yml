@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build production
-        run: npm build:prod
+        run: npm run build:prod
         if: always()
       - name: Linting typescript
         run: npm run lint:ts
@@ -33,7 +33,7 @@ jobs:
         run: npm run test:unit
         if: always()
       - name: Build storybook
-        run: npm build:storybook
+        run: npm run build:storybook
       - name: Loki test
         run: npm run test:ui:ci
         
