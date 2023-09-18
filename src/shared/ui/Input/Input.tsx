@@ -11,7 +11,6 @@ interface InputProps extends HTMLInputProps {
   value?: string;
   onChange? : (value: string) => void;
   autoFocus? : boolean;
-
 }
 
 export const Input = memo((props: InputProps) => {

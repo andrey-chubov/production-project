@@ -15,6 +15,7 @@
   "Введите пароль": "password",
   "Форма авторизации": "Login form",
    "Выйти": "Logout",
-   "error": "username or password not valide"
+   "error": "username or password not valide",
+     "PROFILE PAGE": "PROFILE PAGE"
 
 }

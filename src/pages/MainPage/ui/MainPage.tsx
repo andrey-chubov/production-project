@@ -1,7 +1,8 @@
 import { BugButton } from 'app/providers/ErrorBoundary';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const MainPage = () => {
+const MainPage = memo(() => {
   const { t } = useTranslation('mainpage');
   return (
     <div>
@@ -9,6 +10,6 @@ const MainPage = () => {
       {t('Main page')}
     </div>
   );
-};
+});
 
 export default MainPage;
