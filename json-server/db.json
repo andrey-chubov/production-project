@@ -25,10 +25,10 @@
       "password": "123"
     }
   ],
-  "profile": { 
+  "profile": {
     "firstName": "Андрей",
     "lastName": "Чубов",
-    "age": 25,
+    "age": 1,
     "currency": "RUB",
     "country": "Russia",
     "city": "Moscow",

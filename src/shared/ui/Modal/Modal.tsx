@@ -1,5 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import React, {
+  MutableRefObject,
   ReactNode, lazy, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { useTheme } from 'app/providers/ThemeProider';
@@ -24,9 +25,9 @@ export const Modal = (props: ModalProps) => {
   const [isMounted, setIsMounted] = useState(false);
   const { theme } = useTheme();
   const ANIMATION_DELAY = 300;
-  const timeRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
   };

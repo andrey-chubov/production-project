@@ -2,6 +2,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { t } from 'i18next';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { memo } from 'react';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
 import cls from './SidebarItem.module.scss';
 import { SidebarItemType } from '../../model/items';
 
@@ -12,6 +14,11 @@ interface SidebarItemProps {
 
 export const SidebarItem = memo((props: SidebarItemProps) => {
   const { item, collapsed } = props;
+  const isAuth = useSelector(getUserAuthData);
+
+  if (item.authOnly && !isAuth) {
+    return null;
+  }
   return (
     <AppLink
       theme={AppLinkTheme.SECONDARY}
@@ -20,7 +27,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
     >
       <item.Icon className={cls.icon} />
       <span className={cls.links}>
-        {t(item.text)}
+        {item.text}
       </span>
     </AppLink>
   );

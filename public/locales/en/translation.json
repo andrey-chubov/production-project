@@ -16,6 +16,8 @@
   "Форма авторизации": "Login form",
    "Выйти": "Logout",
    "error": "username or password not valide",
-     "PROFILE PAGE": "PROFILE PAGE"
+     "PROFILE PAGE": "PROFILE PAGE",
+     "Укажите валюту": "Select currency",
+  "Укажите страну": "Select country"
 
 }
