@@ -39,7 +39,8 @@
       "module": "CommonJS"
     }
   },
-  "include": ["./config/jest/jest-setup.ts", "./src/**/*"]
-
-
+  "include": ["./config/jest/jest-setup.ts", "./src/**/*"],
+  "linterOptions": {
+    "exclude": [".vscode"]
+  }
 }
