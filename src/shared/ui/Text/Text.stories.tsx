@@ -3,7 +3,7 @@ import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -60,3 +60,9 @@ PrimaryDark.args = {
   text: 'Текст',
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const SizeL = Template.bind({});
+SizeL.args = {
+  title: 'Заголовок',
+  text: 'Текст',
+  size: TextSize.L,
+};
