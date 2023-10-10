@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
 import { useSelector } from 'react-redux';
 import { getUserAuthData, userAction } from 'entities/User';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './Navbar.module.scss';
 
 interface NavBarProps {
