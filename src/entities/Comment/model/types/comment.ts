@@ -5,3 +5,8 @@ export interface Comment {
   user: User;
   text: string;
 }
+
+export interface AddCommentFormSchema {
+  text?: string;
+  error?: string;
+}

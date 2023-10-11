@@ -3,12 +3,12 @@ import {
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsShema } from 'entities/Article';
+import { AddCommentFormSchema } from 'entities/Comment';
 import { CounterShema } from 'entities/Counter';
 import { ProfileShema } from 'entities/Profile';
 import { UserShema } from 'entities/User';
+import { ArticleDetailsCommentsSchema } from 'features/ArticleDetailsComment';
 import { LoginShema } from 'features/AuthByUsername';
-import { AddCommentFormSchema } from 'features/addCommentForm';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { To, NavigateOptions } from 'react-router-dom';
 
 export interface StateSchema {

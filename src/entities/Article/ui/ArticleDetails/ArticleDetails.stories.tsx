@@ -9,7 +9,7 @@ import { ArticleDetails } from './ArticleDetails';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'entites/ArticleDetails',
+  title: 'entities/ArticleDetails',
   component: ArticleDetails,
   argTypes: {
     backgroundColor: { control: 'color' },
