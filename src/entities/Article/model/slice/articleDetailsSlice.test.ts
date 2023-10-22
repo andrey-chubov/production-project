@@ -9,10 +9,16 @@ const data = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',
+  user: {
+    id: '1',
+    username: 'admin',
+    password: '123',
+    avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+  },
   type: [],
   blocks: [],
 };
-describe('profileSlice.test', () => {
+describe('articleDetailsSlice.test', () => {
   test('fetch article by id pending ', () => {
     const state: DeepPartial<ArticleDetailsShema> = {
       isLoading: false,
