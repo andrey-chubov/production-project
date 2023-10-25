@@ -1,7 +1,7 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { ArticleView } from 'entities/Article';
 import {
-  getArticlesPageError, getArticlesPageHasMore, getArticlesPageIsLoading, getArticlesPageLimit, getArticlesPageNumber, getArticlesPageView,
+  getArticlesPageError, getArticlesPageHasMore, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageLimit, getArticlesPageNumber, getArticlesPageView,
 } from './articlesPageSelectors';
 
 describe('getAriclesPageIsLoading.test', () => {
@@ -75,7 +75,7 @@ describe('getArticlesPageLimit.test', () => {
   });
 });
 describe('getArticlesPageHasMore.test', () => {
-  test('should return number ', () => {
+  test('should return true ', () => {
     const state: DeepPartial<StateSchema> = {
       articlesPage: {
         hasMore: true,
@@ -86,5 +86,19 @@ describe('getArticlesPageHasMore.test', () => {
   test('should work with empty state ', () => {
     const state: DeepPartial<StateSchema> = {};
     expect(getArticlesPageHasMore(state as StateSchema)).toEqual(undefined);
+  });
+});
+describe('getArticlesPageInited.test', () => {
+  test('should return true ', () => {
+    const state: DeepPartial<StateSchema> = {
+      articlesPage: {
+        _inited: true,
+      },
+    };
+    expect(getArticlesPageInited(state as StateSchema)).toBe(true);
+  });
+  test('should work with empty state ', () => {
+    const state: DeepPartial<StateSchema> = {};
+    expect(getArticlesPageInited(state as StateSchema)).toEqual(undefined);
   });
 });

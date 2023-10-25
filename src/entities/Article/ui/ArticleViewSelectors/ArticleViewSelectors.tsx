@@ -32,7 +32,7 @@ export const ArticleViewSelectors = memo(
     return (
       <div className={classNames('', {}, [className])}>
         {viewTypes.map((viewType) => (
-          <Button theme={ButtonTheme.CLEAR} onClick={onClick(viewType.view)}>
+          <Button theme={ButtonTheme.CLEAR} onClick={onClick(viewType.view)} key={viewType.view}>
             <Icon
               Svg={viewType.icon}
               className={classNames('', {

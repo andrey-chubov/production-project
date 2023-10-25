@@ -23,7 +23,7 @@ export const ArticleList = memo(
     view = ArticleView.SMALL,
   }: ArticleListProps) => {
     const renderArticle = (article: Article) => (
-      <ArticleListItem article={article} view={view} className={cls.card} />
+      <ArticleListItem article={article} view={view} className={cls.card} key={article.id} />
     );
 
     return (

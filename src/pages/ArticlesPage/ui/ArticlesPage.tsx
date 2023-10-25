@@ -11,13 +11,13 @@ import { useCallback } from 'react';
 import { Page } from 'shared/ui/Page/Page';
 import cls from './ArticlesPage.module.scss';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import {
   getArticlesPageError,
   getArticlesPageHasMore,
   getArticlesPageIsLoading, getArticlesPageNumber, getArticlesPageView,
 } from '../model/selectors/articlesPageSelectors';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlePage';
 
 interface ArticlesPageProps {
   className?: string;
@@ -38,8 +38,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const hasMore = useSelector(getArticlesPageHasMore);
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(fetchArticlesList({ page: 1 }));
+    dispatch(initArticlesPage());
   });
 
   const onChangeView = useCallback((newView: ArticleView) => {
@@ -53,7 +52,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   }, [dispatch]);
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
         <ArticleViewSelectors view={view} onViewClick={onChangeView} />
         <ArticleList
