@@ -9,11 +9,13 @@ import { ProfileShema } from 'entities/Profile';
 import { UserShema } from 'entities/User';
 import { ArticleDetailsCommentsSchema } from 'features/ArticleDetailsComment';
 import { LoginShema } from 'features/AuthByUsername';
+import { UISchema } from 'features/UI';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 export interface StateSchema {
   counter: CounterShema;
   user: UserShema;
+  ui: UISchema;
   loginForm?: LoginShema;
   profile?: ProfileShema;
   articleDetails?: ArticleDetailsShema;
