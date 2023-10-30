@@ -10,7 +10,7 @@ import ArticleDetailsPage from './ArticleDetailsPage';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'pages/ArticleDetailsPage',
+  title: 'pages/Article/ArticleDetailsPage',
   component: ArticleDetailsPage,
   argTypes: {
     backgroundColor: { control: 'color' },

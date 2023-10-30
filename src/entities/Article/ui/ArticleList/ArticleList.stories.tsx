@@ -9,7 +9,7 @@ import { ArticleList } from './ArticleList';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'entities/ArticleList',
+  title: 'entities/Article/ArticleList',
   component: ArticleList,
   argTypes: {
     backgroundColor: { control: 'color' },

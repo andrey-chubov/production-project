@@ -1,4 +1,4 @@
-import { ArticleView } from 'entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
 import { ArticlesPageSchema } from '../types/ArticlesPageShema';
 import { articlesPageActions, articlesPageReducer } from './articlesPageSlice';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
@@ -45,6 +45,67 @@ describe('articlesPageslice.test', () => {
       ),
     ).toEqual({ page: 8 });
   });
+  test('set sort ', () => {
+    const state: DeepPartial<ArticlesPageSchema> = {
+      sort: ArticleSortField.TITLE,
+    };
+    expect(
+      articlesPageReducer(
+        state as ArticlesPageSchema,
+        articlesPageActions.setSort(ArticleSortField.VIEWS),
+      ),
+    ).toEqual({ sort: ArticleSortField.VIEWS });
+  });
+  test('set search ', () => {
+    const state: DeepPartial<ArticlesPageSchema> = {
+      search: '',
+    };
+    expect(
+      articlesPageReducer(
+        state as ArticlesPageSchema,
+        articlesPageActions.setSearch('test'),
+      ),
+    ).toEqual({ search: 'test' });
+  });
+  test('set order ', () => {
+    const state: DeepPartial<ArticlesPageSchema> = {
+      order: 'asc',
+    };
+    expect(
+      articlesPageReducer(
+        state as ArticlesPageSchema,
+        articlesPageActions.setOrder('desc'),
+      ),
+    ).toEqual({ order: 'desc' });
+  });
+  test('set type ', () => {
+    const state: DeepPartial<ArticlesPageSchema> = {
+      type: ArticleType.ALL,
+    };
+    expect(
+      articlesPageReducer(
+        state as ArticlesPageSchema,
+        articlesPageActions.setType(ArticleType.ECONOMY),
+      ),
+    ).toEqual({ type: ArticleType.ECONOMY });
+  });
+  test('init state ', () => {
+    const state: DeepPartial<ArticlesPageSchema> = {
+      view: ArticleView.BIG,
+      limit: 4,
+      _inited: false,
+    };
+    expect(
+      articlesPageReducer(
+        state as ArticlesPageSchema,
+        articlesPageActions.initState(),
+      ),
+    ).toEqual({
+      view: ArticleView.BIG,
+      limit: 4,
+      _inited: true,
+    });
+  });
 
   test('fetch articles list pending ', () => {
     const state: DeepPartial<ArticlesPageSchema> = {
@@ -53,7 +114,7 @@ describe('articlesPageslice.test', () => {
     expect(
       articlesPageReducer(
         state as ArticlesPageSchema,
-        fetchArticlesList.pending,
+        fetchArticlesList.pending('', { replace: false }),
       ),
     ).toEqual({ isLoading: true });
   });
@@ -66,7 +127,7 @@ describe('articlesPageslice.test', () => {
     expect(
       articlesPageReducer(
         state as ArticlesPageSchema,
-        fetchArticlesList.fulfilled(data, '', { page: 1 }, ''),
+        fetchArticlesList.fulfilled(data, '', { replace: false }, ''),
       ),
     ).toEqual({
       isLoading: false,
@@ -90,7 +151,7 @@ describe('articlesPageslice.test', () => {
           blocks: [],
         },
       },
-      hasMore: true,
+      hasMore: false,
     });
   });
   test('fetch articles list rejected ', () => {
@@ -101,7 +162,7 @@ describe('articlesPageslice.test', () => {
     expect(
       articlesPageReducer(
         state as ArticlesPageSchema,
-        fetchArticlesList.rejected(new Error('error'), '', { page: 1 }, ''),
+        fetchArticlesList.rejected(new Error('error'), '', { replace: false }, ''),
       ),
     ).toEqual({ isLoading: false, error: '' });
   });

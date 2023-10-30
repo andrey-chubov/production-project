@@ -8,7 +8,7 @@ import { ArticleViewSelectors } from './ArticleViewSelectors';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'entities/ArticleViewSelectors',
+  title: 'entities/Article/ArticleViewSelectors',
   component: ArticleViewSelectors,
   argTypes: {
     backgroundColor: { control: 'color' },

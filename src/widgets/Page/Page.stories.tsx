@@ -8,7 +8,7 @@ import { Page } from './Page';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: `${Page}`,
+  title: 'widget/Page',
   component: Page,
   argTypes: {
     backgroundColor: { control: 'color' },

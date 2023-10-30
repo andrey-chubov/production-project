@@ -10,9 +10,13 @@ describe('initArticlesPage.test', () => {
       },
     });
 
-    const result = await thunk.callThunk();
+    const params: DeepPartial<URLSearchParams> = {
+      sort: 'sad',
+    };
 
-    expect(thunk.dispatch).toHaveBeenCalledTimes(4);
+    const result = await thunk.callThunk(params as URLSearchParams);
+
+    expect(thunk.dispatch).toHaveBeenCalledTimes(2);
   });
   test('not inited', async () => {
     const thunk = new TestAsyncThunk(initArticlesPage, {
@@ -22,7 +26,7 @@ describe('initArticlesPage.test', () => {
       },
     });
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk({} as URLSearchParams);
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
   });
