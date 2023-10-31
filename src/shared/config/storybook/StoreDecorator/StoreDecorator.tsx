@@ -7,6 +7,7 @@ import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetai
 import { articleDetailsCommentsReducer } from 'features/ArticleDetailsComment/model/slice/articleDetailsComentsSlice';
 import { addCommentFormReducer } from 'entities/Comment/model/slice/addCommentFormSlice';
 import { uiReducer } from 'features/UI';
+import { articleDetailsRecommendationReducer } from 'pages/ArticleDetailsPage/model/slice/articleDetailsRecomendationsSlice';
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
@@ -15,6 +16,7 @@ const defaultAsyncReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
   articleDetailsComments: articleDetailsCommentsReducer,
   addCommentForm: addCommentFormReducer,
+  articleDetailsRecommendations: articleDetailsRecommendationReducer,
 };
 
 export const StoreDecorator = (

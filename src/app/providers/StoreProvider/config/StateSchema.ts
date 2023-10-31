@@ -10,6 +10,7 @@ import { UserShema } from 'entities/User';
 import { ArticleDetailsCommentsSchema } from 'features/ArticleDetailsComment';
 import { LoginShema } from 'features/AuthByUsername';
 import { UISchema } from 'features/UI';
+import { ArticleDetailsRecommendationsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 export interface StateSchema {
@@ -20,6 +21,7 @@ export interface StateSchema {
   profile?: ProfileShema;
   articleDetails?: ArticleDetailsShema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
+  articleDetailsRecommendations?: ArticleDetailsRecommendationsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
 }
