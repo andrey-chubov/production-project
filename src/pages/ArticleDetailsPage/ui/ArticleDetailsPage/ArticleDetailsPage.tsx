@@ -16,6 +16,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { fetchArticleRecommendations } from '../../model/service/fetchArticleRecommendations/fetchArticleRecommendations';
 import { articleDetailsRecommendationReducer, getArticleRecommendations } from '../../model/slice/articleDetailsRecomendationsSlice';
 import cls from './ArticleDetailsPage.module.scss';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -31,15 +32,10 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
   const dispatch = useAppDispatch();
   const recommendations = useSelector(getArticleRecommendations.selectAll);
   const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
-  const navigate = useNavigate();
 
   useInitialEffect(() => {
     dispatch(fetchArticleRecommendations());
   });
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [navigate]);
 
   if (!id) {
     return (
@@ -51,7 +47,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <Button onClick={onBackToList}>{t('Вернуться к списку статей')}</Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <Text size={TextSize.L} title={t('Рекомендуем')} className={cls.commentTitle} />
         <ArticleList articles={recommendations} isLoading={recommendationsIsLoading} className={cls.recommendations} target='_blank' />
