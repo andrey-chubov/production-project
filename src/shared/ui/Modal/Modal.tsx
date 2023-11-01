@@ -1,7 +1,7 @@
 import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import React, {
   MutableRefObject,
-  ReactNode, lazy, useCallback, useEffect, useRef, useState,
+  ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { useTheme } from 'app/providers/ThemeProider';
 import cls from './Modal.module.scss';

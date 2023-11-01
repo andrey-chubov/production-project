@@ -22,13 +22,13 @@ export const AddCommentForm = memo(
     onCommentTextChange,
     error,
   }: AddCommentFormProps) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('comment');
 
     if (error) {
       return (
         <div className={classNames(cls.AddCommentForm, {}, [className])}>
           <Text
-            title={t('Произошла ошибка при формы')}
+            title={t('Произошла ошибка формы')}
             text={t('Поробуйте обновить страницу')}
             theme={TextTheme.ERROR}
             align={TextAlign.CENTER}

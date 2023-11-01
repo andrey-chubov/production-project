@@ -15,8 +15,11 @@
   "Введите пароль": "password",
   "Форма авторизации": "Login form",
   "Выйти": "Logout",
+  "Войти": "LogIn",
   "error": "username or password not valide",
   "PROFILE PAGE": "PROFILE PAGE",
   "Укажите валюту": "Select currency",
-  "Укажите страну": "Select country"
+  "Укажите страну": "Select country",
+  "Новостной портал": "News Portal",
+  "Создать статью": "Create article"
 }

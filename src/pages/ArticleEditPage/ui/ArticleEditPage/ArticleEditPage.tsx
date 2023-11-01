@@ -14,7 +14,7 @@ const ArticleEditPage = ({ className }: ArticleEditPageProps) => {
   const isEdit = Boolean(id);
   return (
     <Page className={classNames(cls.ArticleEditPage, {}, [className])}>
-      {isEdit ? t(' Редактирование стать с id:') + id : t('Создание новой статьи')}
+      {isEdit ? t(' Редактирование статьи с id:') + id : t('Создание новой статьи')}
     </Page>
   );
 };
