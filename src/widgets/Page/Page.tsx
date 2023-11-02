@@ -18,12 +18,14 @@ interface PageProps {
   onScrollEnd?: () => void;
 }
 
+export const PAGE_ID = 'PAGE_ID';
+
 export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
-  const scrollPosition = useSelector((state:StateSchema) => getUIScrollByPath(state, pathname));
+  const scrollPosition = useSelector((state: StateSchema) => getUIScrollByPath(state, pathname));
 
   useInfiniteScrol({ callback: onScrollEnd, triggerRef, wrapperRef });
 
@@ -32,10 +34,20 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
   });
 
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-    dispatch(uiActions.setScrollPosition({ position: e.currentTarget.scrollTop, path: pathname }));
+    dispatch(
+      uiActions.setScrollPosition({
+        position: e.currentTarget.scrollTop,
+        path: pathname,
+      }),
+    );
   }, 500);
   return (
-    <section ref={wrapperRef} className={classNames(cls.Page, {}, [className])} onScroll={onScroll}>
+    <section
+      ref={wrapperRef}
+      className={classNames(cls.Page, {}, [className])}
+      onScroll={onScroll}
+      id={PAGE_ID}
+    >
       {children}
       {onScrollEnd ? <div ref={triggerRef} className={cls.trigger} /> : null}
     </section>
