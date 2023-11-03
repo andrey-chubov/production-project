@@ -4,7 +4,7 @@ import { Theme } from 'app/providers/ThemeProider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article, ArticleView } from 'entities/Article';
+import { Article, ArticleView } from '../../../Article';
 import { ArticleList } from './ArticleList';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
