@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 import { memo } from 'react';
 import { TextAlign, TextTheme, Text } from 'shared/ui/Text/Text';
+import { HStack } from 'shared/ui/Stack';
 import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
@@ -26,19 +27,19 @@ export const AddCommentForm = memo(
 
     if (error) {
       return (
-        <div className={classNames(cls.AddCommentForm, {}, [className])}>
+        <HStack justify='center' max className={classNames(cls.AddCommentForm, {}, [className])}>
           <Text
             title={t('Произошла ошибка формы')}
             text={t('Поробуйте обновить страницу')}
             theme={TextTheme.ERROR}
             align={TextAlign.CENTER}
           />
-        </div>
+        </HStack>
       );
     }
 
     return (
-      <div className={classNames(cls.AddCommentForm, {}, [className])}>
+      <HStack justify='between' max className={classNames(cls.AddCommentForm, {}, [className])}>
         <Input
           placeholder={t('Введите комментарий')}
           value={value}
@@ -46,7 +47,7 @@ export const AddCommentForm = memo(
           className={cls.input}
         />
         <Button onClick={onSendHandler}>{t('Отправить')}</Button>
-      </div>
+      </HStack>
     );
   },
 );

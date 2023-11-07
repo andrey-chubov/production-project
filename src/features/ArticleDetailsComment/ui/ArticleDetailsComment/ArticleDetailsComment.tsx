@@ -12,13 +12,13 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 
+import { VStack } from 'shared/ui/Stack';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import {
   articleDetailsCommentsReducer,
   getArticleComments,
 } from '../../model/slice/articleDetailsComentsSlice';
-import cls from './ArticleDetailsComment.module.scss';
 import { getArticleCommentsIsLoading } from '../../model/selectors/articleDetailsCommentSelectors';
 
 interface ArticleDetailsCommentProps {
@@ -66,7 +66,7 @@ const ArticleDetailsComment = memo(({
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.ArticleDetailsComment, {}, [className])}>
+      <VStack gap='8' max className={classNames('', {}, [className])}>
         <AddCommentForm
           onCommentTextChange={onCommentTextChange}
           onSendHandler={onSendHandler}
@@ -74,7 +74,7 @@ const ArticleDetailsComment = memo(({
           error={error}
         />
         <CommentList comments={comments} isLoading={isLoading} />
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   );
 });

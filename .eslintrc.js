@@ -38,7 +38,21 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     'jsx-quotes': [2, 'prefer-single'],
-    'i18next/no-literal-string': ['error', { markupOnly: true, ignoreAttribute: ['to', 'data-testid', 'target'] }],
+    'i18next/no-literal-string': [
+      'error',
+      {
+        markupOnly: true,
+        ignoreAttribute: [
+          'to',
+          'data-testid',
+          'target',
+          'justify',
+          'align',
+          'direction',
+          'gap',
+        ],
+      },
+    ],
     'max-len': ['error', { code: 150, tabWidth: 2, ignoreComments: true }],
     'linebreak-style': ['error', 'unix'],
     'jsx-a11y/click-events-have-key-events': 'off',

@@ -8,13 +8,20 @@ import { ArticleDetailsComment } from 'features/ArticleDetailsComment';
 import { Button } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from 'shared/ui/Stack';
 import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendationsSelectors';
 import { fetchArticleRecommendations } from '../../model/service/fetchArticleRecommendations/fetchArticleRecommendations';
-import { articleDetailsRecommendationReducer, getArticleRecommendations } from '../../model/slice/articleDetailsRecomendationsSlice';
+import {
+  articleDetailsRecommendationReducer,
+  getArticleRecommendations,
+} from '../../model/slice/articleDetailsRecomendationsSlice';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
@@ -31,7 +38,9 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
   const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
   const recommendations = useSelector(getArticleRecommendations.selectAll);
-  const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
+  const recommendationsIsLoading = useSelector(
+    getArticleRecommendationsIsLoading,
+  );
 
   useInitialEffect(() => {
     dispatch(fetchArticleRecommendations());
@@ -47,16 +56,29 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <ArticleDetailsPageHeader />
-        <ArticleDetails id={id} />
-        <Text size={TextSize.L} title={t('Рекомендуем')} className={cls.commentTitle} />
-        <ArticleList articles={recommendations} isLoading={recommendationsIsLoading} className={cls.recommendations} target='_blank' />
-        <Text size={TextSize.L} title={t('Комментарии')} className={cls.commentTitle} />
-        <ArticleDetailsComment id={id} />
+        <VStack gap='16' max>
+          <ArticleDetailsPageHeader />
+          <ArticleDetails id={id} />
+          <Text
+            size={TextSize.L}
+            title={t('Рекомендуем')}
+            className={cls.commentTitle}
+          />
+          <ArticleList
+            articles={recommendations}
+            isLoading={recommendationsIsLoading}
+            className={cls.recommendations}
+            target='_blank'
+          />
+          <Text
+            size={TextSize.L}
+            title={t('Комментарии')}
+            className={cls.commentTitle}
+          />
+          <ArticleDetailsComment id={id} />
+        </VStack>
       </Page>
-
     </DynamicModuleLoader>
-
   );
 });
 
