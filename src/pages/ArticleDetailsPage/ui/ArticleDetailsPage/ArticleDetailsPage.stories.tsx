@@ -98,6 +98,9 @@ const article: Article = {
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Light = Template.bind({});
 Light.args = {};
+Light.parameters = {
+  id: '1',
+};
 Light.decorators = [StoreDecorator({
   articleDetails: {
     data: article,

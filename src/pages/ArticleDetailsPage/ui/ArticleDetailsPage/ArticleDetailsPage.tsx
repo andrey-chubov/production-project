@@ -1,12 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails, ArticleList } from 'entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Text, TextSize } from 'shared/ui/Text/Text';
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { ArticleDetailsComment } from 'features/ArticleDetailsComment';
-import { Button } from 'shared/ui/Button/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
 import {
   DynamicModuleLoader,
