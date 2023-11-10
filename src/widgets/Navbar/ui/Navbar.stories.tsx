@@ -18,9 +18,20 @@ export default {
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Light = Template.bind({});
-Light.args = {};
-Light.decorators = [StoreDecorator({})];
+export const auth = Template.bind({});
+auth.args = {};
+auth.decorators = [StoreDecorator({
+  user: {
+    authData: {
+      username: 'test',
+      avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+      id: '1',
+    },
+  },
+})];
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
+export const Light = Template.bind({});
+Light.args = {};
+Light.decorators = [StoreDecorator({})];

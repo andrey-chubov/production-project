@@ -4,69 +4,67 @@ import { Theme } from 'app/providers/ThemeProider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ListBox } from './ListBox';
+import { Dropdown } from './Dropdown';
+import { Button } from '../Button/Button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'shared/ListBox',
-  component: ListBox,
+  title: 'shared/Dropdown',
+  component: Dropdown,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
   decorators: [
     (Story) => <div style={{ padding: '150px' }}><Story /></div>,
   ],
-} as ComponentMeta<typeof ListBox>;
+} as ComponentMeta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
+const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-
 const items = [
-  { value: 'Durward Reynolds', content: 'Durward Reynolds' },
-  { value: 'Kenton Towne', content: 'Kenton Towne' },
-  { value: 'Therese Wunsch', content: 'Therese Wunsch', disabled: true },
-  { value: 'Benedict Kessler', content: 'Benedict Kessler' },
-  { value: 'Katelyn Rohan', content: 'Katelyn Rohan' },
+  {
+    content: 'first',
+  },
+  {
+    content: 'second',
+  },
+  {
+    content: 'third',
+    disabled: true,
+  },
 ];
-
 export const topLeft = Template.bind({});
 topLeft.args = {
+  trigger: <Button>Open</Button>,
   items,
-  defaultValue: items[0].value,
-  value: items[0].value,
   direction: 'top left',
 };
 topLeft.decorators = [StoreDecorator({})];
 export const topRight = Template.bind({});
 topRight.args = {
+  trigger: <Button>Open</Button>,
   items,
-  defaultValue: items[0].value,
-  value: items[0].value,
   direction: 'top right',
 };
 topRight.decorators = [StoreDecorator({})];
-export const Disabled = Template.bind({});
 export const bottomLeft = Template.bind({});
 bottomLeft.args = {
+  trigger: <Button>Open</Button>,
   items,
-  defaultValue: items[0].value,
-  value: items[0].value,
   direction: 'bottom left',
 };
 bottomLeft.decorators = [StoreDecorator({})];
-Disabled.args = {
+export const bottomRight = Template.bind({});
+bottomRight.args = {
+  trigger: <Button>Open</Button>,
   items,
-  defaultValue: items[0].value,
-  value: items[0].value,
-  direction: 'top right',
-  readonly: true,
+  direction: 'bottom right',
 };
-Disabled.decorators = [StoreDecorator({})];
+bottomRight.decorators = [StoreDecorator({})];
 export const Dark = Template.bind({});
 Dark.args = {
+  trigger: <Button>Open</Button>,
   items,
-  defaultValue: items[0].value,
-  value: items[0].value,
 };
 Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
