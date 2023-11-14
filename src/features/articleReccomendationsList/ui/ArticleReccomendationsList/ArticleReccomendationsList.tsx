@@ -14,14 +14,10 @@ interface ArticleReccomendationsListProps {
 export const ArticleReccomendationsList = (props: ArticleReccomendationsListProps) => {
   const { className } = props;
   const { t } = useTranslation('article-details');
-  const { isLoading, data, error } = useArticleRecommendationsList(3);
+  const { isLoading, data: articles, error } = useArticleRecommendationsList(3);
 
-  if (!isLoading && error) {
-    return (
-      <div className={classNames('', {}, [className])}>
-        <Text title={t('Обновите страницу')} size={TextSize.L} />
-      </div>
-    );
+  if (isLoading || error || !articles) {
+    return null;
   }
 
   return (
@@ -31,8 +27,9 @@ export const ArticleReccomendationsList = (props: ArticleReccomendationsListProp
         title={t('Рекомендуем')}
       />
       <ArticleList
-        articles={data}
+        articles={articles}
         target='_blank'
+        virtulized={false}
       />
 
     </VStack>
