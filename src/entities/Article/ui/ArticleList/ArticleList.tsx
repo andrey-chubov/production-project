@@ -33,16 +33,16 @@ export const ArticleList = memo(
     const { t } = useTranslation('article');
     const isBig = view === ArticleView.BIG;
 
-    const itemsPerRow = isBig ? 1 : 4;
-    const rowCount = isBig ? articles.length : Math.ceil(articles.length / itemsPerRow);
-
-    if (!isLoading && !articles.length) {
+    if (!isLoading && !articles?.length) {
       return (
         <div className={classNames('', {}, [className, cls[view]])}>
           <Text title={t('Статьи не найдены')} size={TextSize.L} />
         </div>
       );
     }
+
+    const itemsPerRow = isBig ? 1 : 4;
+    const rowCount = isBig ? articles.length : Math.ceil(articles.length / itemsPerRow);
 
     const rowRender = ({
       index, key, style,

@@ -5,18 +5,20 @@ import { AxiosInstance } from 'axios';
 import { ArticleDetailsShema } from 'entities/Article';
 import { AddCommentFormSchema } from 'entities/Comment';
 import { CounterShema } from 'entities/Counter';
-import { ProfileShema } from 'entities/Profile';
 import { UserShema } from 'entities/User';
 import { ArticleDetailsCommentsSchema } from 'features/ArticleDetailsComment';
 import { LoginShema } from 'features/AuthByUsername';
 import { UISchema } from 'features/UI';
+import { ProfileShema } from 'features/editableProfileCard';
 import { ArticleDetailsRecommendationsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
   counter: CounterShema;
   user: UserShema;
   ui: UISchema;
+ [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
   loginForm?: LoginShema;
   profile?: ProfileShema;
   articleDetails?: ArticleDetailsShema;
