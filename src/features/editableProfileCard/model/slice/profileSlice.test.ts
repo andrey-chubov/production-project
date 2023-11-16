@@ -2,7 +2,8 @@ import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { profileAction, profileReducer } from './profileSlice';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
-import { ProfileShema, ValidateProfileError } from '../types/editableProfileCardSchema';
+import { ProfileShema } from '../types/editableProfileCardSchema';
+import { ValidateProfileError } from '../consts/consts';
 
 const data = {
   firstName: 'Андрей',

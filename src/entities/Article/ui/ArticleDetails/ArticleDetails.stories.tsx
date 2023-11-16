@@ -4,7 +4,8 @@ import { Theme } from 'app/providers/ThemeProider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article, ArticleBlockType, ArticleType } from '../../model/types/article';
+import { ArticleType, ArticleBlockType } from '../../model/const/const';
+import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

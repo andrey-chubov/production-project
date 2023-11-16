@@ -15,6 +15,7 @@
     "strict": true,
     // Для абсолютного импорта
     "baseUrl": "./",
+    "isolatedModules": true,
     "paths": {
       "*": ["./src/*"]
     },
