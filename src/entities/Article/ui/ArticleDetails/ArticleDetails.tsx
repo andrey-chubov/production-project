@@ -31,7 +31,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 
 interface ArticleDetailsProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 const reducers: ReducersList = {
@@ -144,7 +144,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchArticleById(id));
+      if (id) {
+        dispatch(fetchArticleById(id));
+      }
     }
   }, [dispatch, id]);
   return (

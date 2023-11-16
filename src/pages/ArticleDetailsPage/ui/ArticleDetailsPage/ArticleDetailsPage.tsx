@@ -1,37 +1,31 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
-import { memo } from 'react';
 import { ArticleDetailsComment } from 'features/ArticleDetailsComment';
-import { Page } from 'widgets/Page/Page';
-import { VStack } from 'shared/ui/Stack';
 import { ArticleReccomendationsList } from 'features/articleReccomendationsList';
-import cls from './ArticleDetailsPage.module.scss';
+import { Suspense, memo } from 'react';
+import { useParams } from 'react-router-dom';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { VStack } from 'shared/ui/Stack';
+import { Page } from 'widgets/Page/Page';
+import { Loader } from 'shared/ui/Loader/Loader';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
   className?: string;
 }
 
 const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
-  const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
 
-  if (!id) {
-    return (
-      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        {t('Статья не найдена')}
-      </Page>
-    );
-  }
   return (
     <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
       <VStack gap='16' max>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <ArticleReccomendationsList />
-        <ArticleDetailsComment id={id} />
+        <Suspense fallback={<Loader />}>
+          <ArticleDetailsComment id={id} />
+        </Suspense>
       </VStack>
     </Page>
   );

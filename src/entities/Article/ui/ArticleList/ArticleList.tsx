@@ -83,6 +83,7 @@ export const ArticleList = memo(
           isScrolling,
           scrollTop,
         }) => (
+          // @ts-ignore
           <div className={classNames('', {}, [className, cls[view]])} ref={registerChild}>
             {virtulized
               ? (
