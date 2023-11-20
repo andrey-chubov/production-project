@@ -7,7 +7,7 @@ import { PageError } from './PageError';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'widget/PageError',
+  title: 'widgets/PageError',
   component: PageError,
   argTypes: {
     backgroundColor: { control: 'color' },

@@ -8,7 +8,7 @@ import { Sidebar } from './Sidebar';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'widget/SideBar',
+  title: 'widgets/SideBar',
   component: Sidebar,
   argTypes: {
     backgroundColor: { control: 'color' },

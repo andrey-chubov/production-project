@@ -1,9 +1,11 @@
-.title {
-  color: var(--primary-color);
-}
+.primary {
+  .title {
+    color: var(--primary-color);
+  }
 
-.text {
-  color: var(--secondary-color);
+  .text {
+    color: var(--secondary-color);
+  }
 }
 
 .error {
@@ -26,7 +28,7 @@
   }
 }
 
-.lef {
+.left {
   text-align: left;
 }
 

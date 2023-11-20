@@ -17,7 +17,6 @@ export function buildBadelLoader({ isTsx }: BuildBabelLoaderProps) {
           ['@babel/plugin-transform-typescript', { isTsx }],
           '@babel/plugin-transform-runtime',
           isTsx && [babelRemovePropsPlugin, { props: ['data-testid'] }],
-
         ].filter(Boolean),
       },
 

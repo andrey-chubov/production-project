@@ -6,6 +6,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article } from 'entities/Article';
 import { ArticleType, ArticleBlockType } from 'entities/Article/model/const/const';
+import withMock from 'storybook-addon-mock';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -15,6 +16,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  decorators: [withMock],
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
@@ -99,7 +101,16 @@ const article: Article = {
 export const Light = Template.bind({});
 Light.args = {};
 Light.parameters = {
-  id: '1',
+  mockData: [
+    {
+      url: `${__API__}/articles?_limit=3`,
+      method: 'GET',
+      status: 200,
+      response: [{ ...article, id: '1' },
+        { ...article, id: '2 ' },
+        { ...article, id: '3' }],
+    },
+  ],
 };
 Light.decorators = [StoreDecorator({
   articleDetails: {
@@ -113,3 +124,15 @@ Dark.decorators = [StoreDecorator({
     data: article,
   },
 }), ThemeDecorator(Theme.DARK)];
+Dark.parameters = {
+  mockData: [
+    {
+      url: `${__API__}/articles?_limit=3`,
+      method: 'GET',
+      status: 200,
+      response: [{ ...article, id: '1' },
+        { ...article, id: '2 ' },
+        { ...article, id: '3' }],
+    },
+  ],
+};

@@ -5,7 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Dropdown } from './Dropdown';
-import { Button } from '../Button/Button';
+import { Button } from '../../../Button/Button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -62,9 +62,3 @@ bottomRight.args = {
   direction: 'bottom right',
 };
 bottomRight.decorators = [StoreDecorator({})];
-export const Dark = Template.bind({});
-Dark.args = {
-  trigger: <Button>Open</Button>,
-  items,
-};
-Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
