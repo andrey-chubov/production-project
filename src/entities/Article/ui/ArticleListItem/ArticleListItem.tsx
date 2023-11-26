@@ -10,6 +10,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { ARTICLE_INDEX } from 'shared/const/localstorage';
 import {
   Article,
   ArticleTextBlock,
@@ -23,11 +24,12 @@ interface ArticleListItemProps {
   article: Article;
   view: ArticleView;
   target?: HTMLAttributeAnchorTarget;
+  index?: number
 }
 
 export const ArticleListItem = memo(
   ({
-    className, article, view, target,
+    className, article, view, target, index,
   }: ArticleListItemProps) => {
     const { t } = useTranslation('article');
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
@@ -38,10 +40,15 @@ export const ArticleListItem = memo(
       </>
     );
 
+    const onClick = () => {
+      localStorage.setItem(ARTICLE_INDEX, JSON.stringify(index));
+    };
+
     if (view === ArticleView.BIG) {
       const textBlock = article.blocks.find(
         (item) => item.type === 'TEXT',
       ) as ArticleTextBlock;
+
       return (
         <div
           className={classNames(cls.ArticleListItem, {}, [
@@ -66,7 +73,7 @@ export const ArticleListItem = memo(
             )}
             <div className={cls.footer}>
               <AppLink to={RoutePath.articles_details + article.id} target={target}>
-                <Button theme={ButtonTheme.OUTLINE}>
+                <Button theme={ButtonTheme.OUTLINE} onClick={onClick}>
                   {t('Читать далее...')}
                 </Button>
               </AppLink>
@@ -78,7 +85,7 @@ export const ArticleListItem = memo(
       );
     }
     return (
-      <AppLink to={RoutePath.articles_details + article.id} className={classNames('', {}, [className, cls[view]])} target={target}>
+      <AppLink to={RoutePath.articles_details + article.id} className={classNames('', {}, [className, cls[view]])} target={target} onClick={onClick}>
         <Card>
           <div className={cls.imageWrapper}>
             <img src={article.img} alt={article.title} className={cls.img} />
