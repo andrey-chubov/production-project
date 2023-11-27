@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { ScrollSchema } from '../types/UISchema';
 import { getUIScroll, getUIScrollByPath } from './uiSelectors';
 

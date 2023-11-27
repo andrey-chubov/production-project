@@ -1,20 +1,20 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { AddCommentForm } from 'entities/Comment/ui/addCommentForm/AddCommentForm';
+import { memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AddCommentForm } from '@/entities/Comment/ui/addCommentForm/AddCommentForm';
 import {
   CommentList, addCommentFormAction, addCommentFormReducer, getAddCommentFormError, getAddCommentFormText,
-} from 'entities/Comment';
+} from '@/entities/Comment';
 import {
   DynamicModuleLoader,
   ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 
-import { VStack } from 'shared/ui/Stack';
-import { TextSize, Text } from 'shared/ui/Text/Text';
-import { useTranslation } from 'react-i18next';
+import { VStack } from '@/shared/ui/Stack';
+import { TextSize, Text } from '@/shared/ui/Text/Text';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import {

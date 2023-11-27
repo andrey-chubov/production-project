@@ -1,10 +1,10 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Input } from 'shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button/Button';
 import { memo } from 'react';
-import { TextAlign, TextTheme, Text } from 'shared/ui/Text/Text';
-import { HStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Input } from '@/shared/ui/Input/Input';
+import { Button } from '@/shared/ui/Button/Button';
+import { TextAlign, TextTheme, Text } from '@/shared/ui/Text/Text';
+import { HStack } from '@/shared/ui/Stack';
 import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {

@@ -1,15 +1,15 @@
-import { Article, ArticleView } from 'entities/Article';
-import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
-import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import {
   memo, useCallback,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
-import { ARTICLE_INDEX } from 'shared/const/localstorage';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text, TextSize } from 'shared/ui/Text/Text';
+import { ArticleListItemSkeleton } from '@/entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
+import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleListItem';
+import { Article, ArticleView } from '@/entities/Article';
+import { ARTICLE_INDEX } from '@/shared/const/localstorage';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
 import { getArticles } from '../../model/slice/articlesPageSlice';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
@@ -53,7 +53,7 @@ export const ArticleInfiniteList = ({ className, loadMore }: ArticleInfiniteList
   const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
   const isLoading = useSelector(getArticlesPageIsLoading);
-  const initMostIndex = Number(localStorage.getItem(ARTICLE_INDEX)) || 0;
+  const initMostIndex = Number(localStorage.getItem(ARTICLE_INDEX)) || 0; // <= добавить проверки на  NaN и индекс вне  диапозона.
 
   if (!isLoading && !articles?.length) {
     return (

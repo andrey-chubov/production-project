@@ -1,9 +1,9 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import MainIcon from 'shared/assets/icons/main.svg';
-import AboutIcon from 'shared/assets/icons/about.svg';
-import ProfileIcon from 'shared/assets/icons/profile.svg';
-import ArticlesIcon from 'shared/assets/icons/articles.svg';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import MainIcon from '@/shared/assets/icons/main.svg';
+import AboutIcon from '@/shared/assets/icons/about.svg';
+import ProfileIcon from '@/shared/assets/icons/profile.svg';
+import ArticlesIcon from '@/shared/assets/icons/articles.svg';
 import { SidebarItemType } from '../types/sidebarItem';
 import { getSidebarItmes } from './getSidebarItems';
 
