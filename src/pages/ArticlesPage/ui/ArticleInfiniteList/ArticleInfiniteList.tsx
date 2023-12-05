@@ -48,7 +48,7 @@ const ItemContainerComp = (view: ArticleView) => ({ height, width, index }:{heig
 );
 
 export const ArticleInfiniteList = ({ className, loadMore }: ArticleInfiniteListProps) => {
-  const { t } = useTranslation('articles');
+  const { t } = useTranslation('article');
   const articles = useSelector(getArticles.selectAll);
   const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);

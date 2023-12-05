@@ -1,6 +1,6 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Theme } from '@/app/providers/ThemeProider';
+import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -22,7 +22,7 @@ export const Light = Template.bind({});
 Light.args = {
   text: `import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProider';
+import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -45,7 +45,7 @@ export const Dark = Template.bind({});
 Dark.args = {
   text: `import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProider';
+import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';

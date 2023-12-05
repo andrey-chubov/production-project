@@ -42,6 +42,6 @@
   },
   "include": ["./config/jest/jest-setup.ts", "./src/**/*"],
   "linterOptions": {
-    "exclude": [".vscode"]
+    "exclude": ["./vscode"]
   }
 }

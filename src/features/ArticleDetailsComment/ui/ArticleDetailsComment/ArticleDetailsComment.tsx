@@ -23,7 +23,7 @@ import {
 } from '../../model/slice/articleDetailsComentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/articleDetailsCommentSelectors';
 
-interface ArticleDetailsCommentProps {
+export interface ArticleDetailsCommentProps {
   className?: string;
   id?: string;
 }

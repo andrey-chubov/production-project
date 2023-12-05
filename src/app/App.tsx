@@ -1,7 +1,7 @@
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useTheme } from '@/app/providers/ThemeProider/lib/useTheme';
+import { useTheme } from '@/app/providers/ThemeProvider/lib/useTheme';
 
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/SideBar';
