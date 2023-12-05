@@ -17,16 +17,16 @@ interface ArticleDetailsPageProps {
 const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
   const { id } = useParams<{ id: string }>();
 
-  if (!id) {
-    return null;
-  }
+  // if (!id) {
+  //   return null;
+  // }
 
   return (
     <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
       <VStack gap='16' max>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        <ArticleRating articleId={id} />
+        <ArticleRating articleId={id!} />
         <ArticleReccomendationsList />
         <ArticleDetailsComment id={id} />
       </VStack>
