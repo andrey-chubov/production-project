@@ -5,6 +5,7 @@ import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/Dynami
 import { articleDetailsReducer } from '@/entities/Article/testing';
 import { articleDetailsCommentsReducer } from '@/features/ArticleDetailsComment/testing';
 import { addCommentFormReducer } from '@/entities/Comment/testing';
+// eslint-disable-next-line andrey-plugin/layer-imports
 import { uiReducer } from '@/features/UI';
 import { articleDetailsRecommendationReducer } from '@/pages/ArticleDetailsPage/testing';
 import { profileReducer } from '@/features/editableProfileCard/testing';
