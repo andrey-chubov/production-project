@@ -5,7 +5,7 @@ import {
 } from 'react-virtualized';
 import { Text, TextSize } from '@/shared/ui/Text/Text';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { PAGE_ID } from '@/widgets/Page/Page';
+import { PAGE_ID } from '@/widgets/Page';
 import { Article } from '../../model/types/article';
 import { ArticleView } from '../../model/const/const';
 import cls from './ArticleList.module.scss';

@@ -65,7 +65,8 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-undef': 'off',
     'react/no-array-index-key': 'off',
-    'andrey-plugin/path-checker': ['error', {alias: '@'}],
+    'andrey-plugin/path-checker': ['error', { alias: '@' }],
+    'andrey-plugin/public-api-imports': ['error', { alias: '@' }],
   },
   globals: {
     __IS_DEV__: true,

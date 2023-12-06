@@ -4,9 +4,9 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
-import { ArticleListItemSkeleton } from '@/entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
-import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleListItem';
-import { Article, ArticleView } from '@/entities/Article';
+import {
+  Article, ArticleView, ArticleListItem, ArticleListItemSkeleton,
+} from '@/entities/Article';
 import { ARTICLE_INDEX } from '@/shared/const/localstorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text, TextSize } from '@/shared/ui/Text/Text';
