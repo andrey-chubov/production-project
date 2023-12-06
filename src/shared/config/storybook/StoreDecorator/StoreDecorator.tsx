@@ -1,15 +1,13 @@
-/* eslint-disable andrey-plugin/public-api-imports */
-// TODO:
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
+import { loginReducer } from '@/features/AuthByUsername/testing';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
-import { articleDetailsCommentsReducer } from '@/features/ArticleDetailsComment/model/slice/articleDetailsComentsSlice';
-import { addCommentFormReducer } from '@/entities/Comment/model/slice/addCommentFormSlice';
+import { articleDetailsReducer } from '@/entities/Article/testing';
+import { articleDetailsCommentsReducer } from '@/features/ArticleDetailsComment/testing';
+import { addCommentFormReducer } from '@/entities/Comment/testing';
 import { uiReducer } from '@/features/UI';
-import { articleDetailsRecommendationReducer } from '@/pages/ArticleDetailsPage/model/slice/articleDetailsRecomendationsSlice';
-import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
+import { articleDetailsRecommendationReducer } from '@/pages/ArticleDetailsPage/testing';
+import { profileReducer } from '@/features/editableProfileCard/testing';
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
