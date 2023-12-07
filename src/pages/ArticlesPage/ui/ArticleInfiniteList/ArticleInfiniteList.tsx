@@ -1,19 +1,23 @@
 import {
   memo, useCallback,
 } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
+
 import {
   Article, ArticleView, ArticleListItem, ArticleListItemSkeleton,
 } from '@/entities/Article';
 import { ARTICLE_INDEX } from '@/shared/const/localstorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text, TextSize } from '@/shared/ui/Text';
+
+import cls from './ArticleInfiniteList.module.scss';
+
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
 import { getArticles } from '../../model/slice/articlesPageSlice';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
-import cls from './ArticleInfiniteList.module.scss';
 
 interface ArticleInfiniteListProps {
 className?: string

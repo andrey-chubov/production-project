@@ -1,15 +1,19 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import {
   List, ListRowProps, WindowScroller,
 } from 'react-virtualized';
-import { Text, TextSize } from '@/shared/ui/Text';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextSize } from '@/shared/ui/Text';
 // eslint-disable-next-line andrey-plugin/layer-imports
 import { PAGE_ID } from '@/widgets/Page';
-import { Article } from '../../model/types/article';
-import { ArticleView } from '../../model/const/const';
+
 import cls from './ArticleList.module.scss';
+
+import { ArticleView } from '../../model/const/const';
+import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 

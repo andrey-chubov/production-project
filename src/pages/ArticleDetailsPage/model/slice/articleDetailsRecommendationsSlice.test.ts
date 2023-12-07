@@ -1,6 +1,6 @@
+import { articleDetailsRecommendationReducer } from './articleDetailsRecomendationsSlice';
 import { fetchArticleRecommendations } from '../service/fetchArticleRecommendations/fetchArticleRecommendations';
 import { ArticleDetailsRecommendationsSchema } from '../types/ArticleDetailsRecommendationsSchema';
-import { articleDetailsRecommendationReducer } from './articleDetailsRecomendationsSlice';
 
 describe('articleDetailsRecommendationsSlice.test', () => {
   const data = [

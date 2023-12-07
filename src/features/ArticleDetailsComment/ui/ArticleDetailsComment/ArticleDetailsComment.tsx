@@ -1,27 +1,29 @@
 import { memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
+
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { useSelector } from 'react-redux';
+
 import {
   AddCommentForm,
   CommentList, addCommentFormAction, addCommentFormReducer, getAddCommentFormError, getAddCommentFormText,
 } from '@/entities/Comment';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-
 import { VStack } from '@/shared/ui/Stack';
 import { TextSize, Text } from '@/shared/ui/Text';
+
+import { getArticleCommentsIsLoading } from '../../model/selectors/articleDetailsCommentSelectors';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import {
   articleDetailsCommentsReducer,
   getArticleComments,
 } from '../../model/slice/articleDetailsComentsSlice';
-import { getArticleCommentsIsLoading } from '../../model/selectors/articleDetailsCommentSelectors';
 
 export interface ArticleDetailsCommentProps {
   className?: string;

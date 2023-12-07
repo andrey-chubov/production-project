@@ -1,5 +1,6 @@
-import { DropDownDirection } from '../../../types/ui';
 import cls from './popus.module.scss';
+
+import { DropDownDirection } from '../../../types/ui';
 
 export const mapDirectionClass: Record<DropDownDirection, string> = {
   'top left': cls.optionsTopLeft,

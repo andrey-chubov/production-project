@@ -1,5 +1,5 @@
-import { LoginShema } from '../types/LoginShema';
 import { loginAction, loginReducer } from './loginSlice';
+import { LoginShema } from '../types/LoginShema';
 
 describe('loginSlice.test', () => {
   test('set username ', () => {

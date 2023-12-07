@@ -1,10 +1,14 @@
-import { Menu } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
+
+import { Menu } from '@headlessui/react';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropDownDirection } from '@/shared/types/ui';
+
 import cls from './Dropdown.module.scss';
-import { VStack } from '../../../Stack';
+
 import { AppLink } from '../../../AppLink/AppLink';
+import { VStack } from '../../../Stack';
 import { mapDirectionClass } from '../../styles/const';
 import popupCls from '../../styles/popus.module.scss';
 

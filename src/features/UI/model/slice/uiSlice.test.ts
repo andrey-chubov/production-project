@@ -1,5 +1,5 @@
-import { UISchema } from '../types/UISchema';
 import { uiActions, uiReducer } from './UISlice';
+import { UISchema } from '../types/UISchema';
 
 describe('uiSlice.test', () => {
   test('set scroll position ', () => {

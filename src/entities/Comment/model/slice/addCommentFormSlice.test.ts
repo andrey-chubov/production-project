@@ -1,5 +1,5 @@
-import { AddCommentFormSchema } from '../types/comment';
 import { addCommentFormAction, addCommentFormReducer } from './addCommentFormSlice';
+import { AddCommentFormSchema } from '../types/comment';
 
 describe('addCommentFromSlice.test', () => {
   test('set readonly ', () => {

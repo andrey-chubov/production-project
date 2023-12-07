@@ -1,6 +1,6 @@
+import { articleDetailsCommentsReducer } from './articleDetailsComentsSlice';
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsShema';
-import { articleDetailsCommentsReducer } from './articleDetailsComentsSlice';
 
 describe('articleDetailsCommentsSlice.test', () => {
   test('fetch comments pending ', () => {

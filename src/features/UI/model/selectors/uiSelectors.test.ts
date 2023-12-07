@@ -1,6 +1,7 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { ScrollSchema } from '../types/UISchema';
+
 import { getUIScroll, getUIScrollByPath } from './uiSelectors';
+import { ScrollSchema } from '../types/UISchema';
 
 const scroll: ScrollSchema = {
   '/articles': 400,

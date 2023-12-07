@@ -1,4 +1,5 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { Avatar } from './Avatar';
 import AvatarImage from './avatar.jpg';
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

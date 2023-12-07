@@ -1,5 +1,4 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './AdminPanelPage.module.scss';
 
 interface AdminPanelPageProps {
 className?: string
