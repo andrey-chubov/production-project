@@ -1,6 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { ArticleDetailsCommentProps } from './ArticleDetailsComment';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 const ArticleDetailsCommentLazy = lazy(() => import('./ArticleDetailsComment'));
 export const ArticleDetailsCommentAsync = (props: ArticleDetailsCommentProps) => (
