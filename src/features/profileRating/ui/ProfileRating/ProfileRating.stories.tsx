@@ -46,5 +46,21 @@ withEstimation.parameters = {
   ],
 };
 export const noEstimationDark = Template.bind({});
-noEstimationDark.args = {};
+noEstimationDark.args = {
+  profileId: '2',
+};
+noEstimationDark.parameters = {
+  mockData: [
+    {
+      url: `${__API__}/profile-ratings?profileId=2&userId=2`,
+      method: 'GET',
+      status: 200,
+      response: [
+        {
+          rate: undefined,
+        },
+      ],
+    },
+  ],
+};
 noEstimationDark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];

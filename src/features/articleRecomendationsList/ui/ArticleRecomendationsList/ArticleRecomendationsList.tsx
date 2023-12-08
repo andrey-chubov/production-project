@@ -7,11 +7,11 @@ import { Text, TextSize } from '@/shared/ui/Text';
 
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 
-interface ArticleReccomendationsListProps {
+interface ArticleRecomendationsListProps {
     className?: string;
 }
 
-export const ArticleReccomendationsList = (props: ArticleReccomendationsListProps) => {
+export const ArticleRecomendationsList = (props: ArticleRecomendationsListProps) => {
   const { className } = props;
   const { t } = useTranslation('article-details');
   const { isLoading, data: articles, error } = useArticleRecommendationsList(3);

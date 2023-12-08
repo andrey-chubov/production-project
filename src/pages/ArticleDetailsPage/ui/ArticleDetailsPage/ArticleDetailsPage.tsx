@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
 import { ArticleDetailsComment } from '@/features/ArticleDetailsComment';
 import { ArticleRating } from '@/features/articleRating';
-import { ArticleReccomendationsList } from '@/features/articleReccomendationsList';
+import { ArticleRecomendationsList } from '@/features/articleRecomendationsList';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
@@ -31,7 +31,7 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <ArticleRating articleId={id!} />
-        <ArticleReccomendationsList />
+        <ArticleRecomendationsList />
         <ArticleDetailsComment id={id} />
       </VStack>
     </Page>

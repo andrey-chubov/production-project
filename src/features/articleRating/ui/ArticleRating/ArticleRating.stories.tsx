@@ -46,7 +46,9 @@ withEstimation.parameters = {
   ],
 };
 export const noEstimationDark = Template.bind({});
-noEstimationDark.args = {};
+noEstimationDark.args = {
+  articleId: '2',
+};
 noEstimationDark.decorators = [StoreDecorator({
   user: {
     authData: {
@@ -57,11 +59,12 @@ noEstimationDark.decorators = [StoreDecorator({
 noEstimationDark.parameters = {
   mockData: [
     {
-      url: `${__API__}/article-ratings?userId=2&articleId=1`,
+      url: `${__API__}/article-ratings?userId=2&articleId=2`,
       method: 'GET',
       status: 200,
       response: [
         {
+          rate: undefined,
         },
       ],
     },

@@ -109,11 +109,26 @@ Light.parameters = {
         { ...article, id: '2 ' },
         { ...article, id: '3' }],
     },
+    {
+      url: `${__API__}/article-ratings?userId=2`,
+      method: 'GET',
+      status: 200,
+      response: [
+        {
+          rate: 2,
+        },
+      ],
+    },
   ],
 };
 Light.decorators = [StoreDecorator({
   articleDetails: {
     data: article,
+  },
+  user: {
+    authData: {
+      id: '2',
+    },
   },
 })];
 export const Dark = Template.bind({});
@@ -121,6 +136,11 @@ Dark.args = {};
 Dark.decorators = [StoreDecorator({
   articleDetails: {
     data: article,
+  },
+  user: {
+    authData: {
+      id: '2',
+    },
   },
 }), ThemeDecorator(Theme.DARK)];
 Dark.parameters = {
@@ -132,6 +152,16 @@ Dark.parameters = {
       response: [{ ...article, id: '1' },
         { ...article, id: '2 ' },
         { ...article, id: '3' }],
+    },
+    {
+      url: `${__API__}/article-ratings?userId=2`,
+      method: 'GET',
+      status: 200,
+      response: [
+        {
+          rate: 2,
+        },
+      ],
     },
   ],
 };
