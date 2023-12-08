@@ -3,7 +3,6 @@ import { addDecorator } from '@storybook/react';
 import { RouteDecorator } from '../../src/shared/config/storybook/RouteDecorator/RouteDecorator';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
-import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '../../src/shared/const/theme';
 
 export const parameters = {
@@ -14,9 +13,25 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  layout: 'fullscreen',
+  themes: {
+    default: 'light',
+    list: [
+      {
+        name: 'light', class: ['app', Theme.LIGHT], color: '#ffff',
+      },
+      {
+        name: 'dark', class: ['app', Theme.DARK], color: '#000000',
+      },
+      {
+        name: 'orange', class: ['app', Theme.ORANGE], color: '#ffb005',
+      },
+
+    ],
+
+  },
 };
 
 addDecorator(StyleDecorator);
-addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouteDecorator);
 addDecorator(SuspenseDecorator);
