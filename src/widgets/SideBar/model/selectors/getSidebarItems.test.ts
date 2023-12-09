@@ -3,7 +3,9 @@ import AboutIcon from '@/shared/assets/icons/about.svg';
 import ArticlesIcon from '@/shared/assets/icons/articles.svg';
 import MainIcon from '@/shared/assets/icons/main.svg';
 import ProfileIcon from '@/shared/assets/icons/profile.svg';
-import { RoutePath } from '@/shared/const/router';
+import {
+  getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
+} from '@/shared/const/router';
 
 import { getSidebarItmes } from './getSidebarItems';
 import { SidebarItemType } from '../types/sidebarItem';
@@ -11,23 +13,23 @@ import { SidebarItemType } from '../types/sidebarItem';
 describe('getSidebarItems.test', () => {
   const data: SidebarItemType[] = [
     {
-      path: RoutePath.main,
+      path: getRouteMain(),
       Icon: MainIcon,
       text: 'Главная',
     },
     {
-      path: RoutePath.about,
+      path: getRouteAbout(),
       Icon: AboutIcon,
       text: 'О нас',
     },
     {
-      path: `${RoutePath.profile}1`,
+      path: getRouteProfile('1'),
       Icon: ProfileIcon,
       text: 'Профиль',
       authOnly: true,
     },
     {
-      path: RoutePath.articles,
+      path: getRouteArticles(),
       Icon: ArticlesIcon,
       text: 'Статьи',
       authOnly: true,
@@ -35,12 +37,12 @@ describe('getSidebarItems.test', () => {
   ];
   const unReg: SidebarItemType[] = [
     {
-      path: RoutePath.main,
+      path: getRouteMain(),
       Icon: MainIcon,
       text: 'Главная',
     },
     {
-      path: RoutePath.about,
+      path: getRouteAbout(),
       Icon: AboutIcon,
       text: 'О нас',
     },

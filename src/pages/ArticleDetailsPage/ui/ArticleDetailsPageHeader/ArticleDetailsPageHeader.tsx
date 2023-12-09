@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { getArticleDetailsData } from '@/entities/Article';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
@@ -25,11 +25,9 @@ export const ArticleDetailsPageHeader = ({
   const canEdit = useSelector(getCanEditArticle);
 
   const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
+    navigate(getRouteArticles());
   }, [navigate]);
-  const onEditArticle = useCallback(() => {
-    navigate(`${RoutePath.articles_details}${article?.id}/edit`);
-  }, [article?.id, navigate]);
+  const onEditArticle = useCallback(() => navigate(getRouteArticleEdit(article?.id || '')), [article?.id, navigate]);
 
   return (
     <HStack max justify='between' className={classNames('', {}, [className])}>

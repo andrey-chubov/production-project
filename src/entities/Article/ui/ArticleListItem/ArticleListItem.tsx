@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { ARTICLE_INDEX } from '@/shared/const/localstorage';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -75,7 +75,7 @@ export const ArticleListItem = memo(
               />
             )}
             <div className={cls.footer}>
-              <AppLink to={RoutePath.articles_details + article.id} target={target}>
+              <AppLink to={getRouteArticleDetails(article.id)} target={target}>
                 <Button theme={ButtonTheme.OUTLINE} onClick={onClick}>
                   {t('Читать далее...')}
                 </Button>
@@ -88,7 +88,7 @@ export const ArticleListItem = memo(
       );
     }
     return (
-      <AppLink to={RoutePath.articles_details + article.id} className={classNames('', {}, [className, cls[view]])} target={target} onClick={onClick}>
+      <AppLink to={getRouteArticleDetails(article.id)} className={classNames('', {}, [className, cls[view]])} target={target} onClick={onClick}>
         <Card>
           <div className={cls.imageWrapper}>
             <img src={article.img} alt={article.title} className={cls.img} />
