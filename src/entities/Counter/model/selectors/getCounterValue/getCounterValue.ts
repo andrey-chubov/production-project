@@ -1,6 +1,6 @@
-import { createSelector } from '@reduxjs/toolkit';
+import { buildSelector } from '@/shared/lib/store';
 
-import { CounterShema } from '../../types/counterSchema';
-import { getCounter } from '../getCounter/getCounter';
-
-export const getCounterValue = createSelector(getCounter, (counter: CounterShema) => counter.value);
+// Использование reselect:
+// export const getCounterValue = createSelector(getCounter, (counter: CounterShema) => counter.value);
+//
+export const [useCounterValue, getCounterValue] = buildSelector((state) => state.counter.value);
