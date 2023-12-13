@@ -7,7 +7,7 @@ import { Page } from '@/widgets/Page';
 const MainPage = memo(() => {
   const { t } = useTranslation('mainpage');
   return (
-    <Page>
+    <Page data-testid='MainPage'>
       {t('Main page')}
     </Page>
   );

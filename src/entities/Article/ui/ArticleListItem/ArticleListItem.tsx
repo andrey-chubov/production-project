@@ -6,11 +6,13 @@ import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { ARTICLE_INDEX } from '@/shared/const/localstorage';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text } from '@/shared/ui/Text';
 
 import cls from './ArticleListItem.module.scss';
@@ -67,7 +69,12 @@ export const ArticleListItem = memo(
             </div>
             <Text title={article.title} className={cls.title} />
             {types}
-            <img src={article.img} alt={article.title} className={cls.img} />
+            <AppImage
+              src={article.img}
+              alt={article.title}
+              className={cls.img}
+              fallback={<Skeleton width='100%' height={250} />}
+            />
             {textBlock && (
               <ArticleTextBlockComponent
                 block={textBlock}
@@ -91,7 +98,12 @@ export const ArticleListItem = memo(
       <AppLink to={getRouteArticleDetails(article.id)} className={classNames('', {}, [className, cls[view]])} target={target} onClick={onClick}>
         <Card>
           <div className={cls.imageWrapper}>
-            <img src={article.img} alt={article.title} className={cls.img} />
+            <AppImage
+              src={article.img}
+              alt={article.title}
+              className={cls.img}
+              fallback={<Skeleton width={200} height={200} />}
+            />
             <Text text={article.createdAt} className={cls.date} />
           </div>
           <div className={cls.infoWrapper}>

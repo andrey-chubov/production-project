@@ -1,4 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Page } from '@/widgets/Page';
 
 interface AdminPanelPageProps {
 className?: string
@@ -6,9 +7,9 @@ className?: string
 
 const AdminPanelPage = ({ className }: AdminPanelPageProps) => (
   // eslint-disable-next-line i18next/no-literal-string
-  <div className={classNames('', {}, [className])}>
+  <Page className={classNames('', {}, [className])} data-testid='AdminPanelPage'>
     Админ панель
-  </div>
+  </Page>
 );
 
 export default AdminPanelPage;
