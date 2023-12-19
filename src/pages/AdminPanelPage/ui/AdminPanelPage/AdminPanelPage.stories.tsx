@@ -15,6 +15,7 @@ export default {
   },
 } as ComponentMeta<typeof AdminPanelPage>;
 
+// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof AdminPanelPage> = (args) => <AdminPanelPage {...args} />;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args

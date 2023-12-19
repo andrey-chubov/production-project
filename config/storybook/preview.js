@@ -1,5 +1,3 @@
-import { addDecorator } from '@storybook/react';
-
 import { RouteDecorator } from '../../src/shared/config/storybook/RouteDecorator/RouteDecorator';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
@@ -32,6 +30,4 @@ export const parameters = {
   },
 };
 
-addDecorator(StyleDecorator);
-addDecorator(RouteDecorator);
-addDecorator(SuspenseDecorator);
+export const decorators = [StyleDecorator, RouteDecorator, SuspenseDecorator];

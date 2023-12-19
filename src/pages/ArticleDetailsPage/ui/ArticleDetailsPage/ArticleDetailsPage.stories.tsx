@@ -1,5 +1,4 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { Article, ArticleType, ArticleBlockType } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -15,7 +14,6 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  decorators: [withMock],
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
