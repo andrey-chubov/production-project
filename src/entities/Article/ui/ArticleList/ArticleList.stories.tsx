@@ -98,21 +98,18 @@ const article = {
 export const Light = Template.bind({});
 Light.args = {
   articles: [article, article, article, article],
-  virtulized: false,
   isLoading: false,
 };
 Light.decorators = [StoreDecorator({})];
 export const LightBig = Template.bind({});
 LightBig.args = {
   articles: [article, article],
-  virtulized: false,
   view: ArticleView.BIG,
 };
 LightBig.decorators = [StoreDecorator({})];
 export const Dark = Template.bind({});
 Dark.args = {
   articles: [article, article],
-  virtulized: false,
   isLoading: false,
 };
 Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];

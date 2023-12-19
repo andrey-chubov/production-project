@@ -15,6 +15,7 @@
     "strict": true,
     // Для абсолютного импорта
     "baseUrl": "./",
+    "lib": ["es2015", "DOM"],
     "isolatedModules": true,
     "paths": {
       "@/*": ["./src/*"]

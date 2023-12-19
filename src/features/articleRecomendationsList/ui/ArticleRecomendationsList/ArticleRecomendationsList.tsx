@@ -29,7 +29,6 @@ export const ArticleRecomendationsList = (props: ArticleRecomendationsListProps)
       <ArticleList
         articles={articles}
         target='_blank'
-        virtulized={false}
       />
 
     </VStack>
