@@ -5,7 +5,7 @@ interface BuildBabelLoaderProps extends BuildOptions {
   isTsx?: boolean;
 }
 
-export function buildBadelLoader({ isTsx }: BuildBabelLoaderProps) {
+export function buildBadelLoader({ isTsx, isDev }: BuildBabelLoaderProps) {
   return {
     test: isTsx ? /\.(tsx|jsx)$/ : /\.(ts|js)$/,
     exclude: /node_modules/,
@@ -16,7 +16,7 @@ export function buildBadelLoader({ isTsx }: BuildBabelLoaderProps) {
         plugins: [
           ['@babel/plugin-transform-typescript', { isTsx }],
           '@babel/plugin-transform-runtime',
-          isTsx && [babelRemovePropsPlugin, { props: ['data-testid'] }],
+          isTsx && !isDev && [babelRemovePropsPlugin, { props: ['data-testid'] }],
         ].filter(Boolean),
       },
 

@@ -38,7 +38,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <div className={classNames(cls.ArticlesPage, {}, [className])}>
+      <div className={classNames(cls.ArticlesPage, {}, [className])} data-testid='ArticlesPage'>
         <ArticleInfiniteList className={cls.list} loadMore={onLoadNextPart} />
       </div>
     </DynamicModuleLoader>

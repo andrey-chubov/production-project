@@ -647,7 +647,7 @@
     },
     {
       "id": "3",
-      "username": "user1",
+      "username": "testuser",
       "password": "123",
       "roles": [
         "MANAGER"
@@ -676,6 +676,19 @@
       "country": "Russia",
       "city": "Moscow",
       "username": "ulbi tv",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg",
+      "firstName": "Тимур",
+      "lastName": "Ульби"
+    },
+    {
+      "id": "3",
+      "first": "ulbi tv",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "testuser",
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg",
       "firstName": "Тимур",
       "lastName": "Ульби"
