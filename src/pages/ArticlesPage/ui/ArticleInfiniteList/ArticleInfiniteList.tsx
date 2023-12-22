@@ -83,7 +83,7 @@ export const ArticleInfiniteList = ({ className, loadMore }: ArticleInfiniteList
 
   if (view === ArticleView.SMALL) {
     return (
-      <div className={classNames(cls.ArticleInfiniteList, {}, [className, cls[view]])}>
+      <div className={classNames(cls.ArticleInfiniteList, {}, [className, cls[view]])} data-testid='ArticleInfinityList'>
         <VirtuosoGrid
           totalCount={articles.length}
           data={articles}

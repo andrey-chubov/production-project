@@ -56,6 +56,7 @@ export const ArticleListItem = memo(
 
       return (
         <div
+          data-testid='ArticleListItem'
           className={classNames(cls.ArticleListItem, {}, [
             className,
             cls[view],
@@ -95,7 +96,13 @@ export const ArticleListItem = memo(
       );
     }
     return (
-      <AppLink to={getRouteArticleDetails(article.id)} className={classNames('', {}, [className, cls[view]])} target={target} onClick={onClick}>
+      <AppLink
+        data-testid='ArticleListItem'
+        to={getRouteArticleDetails(article.id)}
+        className={classNames('', {}, [className, cls[view]])}
+        target={target}
+        onClick={onClick}
+      >
         <Card>
           <div className={cls.imageWrapper}>
             <AppImage

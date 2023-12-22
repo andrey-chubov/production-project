@@ -42,14 +42,15 @@ export const AddCommentForm = memo(
     }
 
     return (
-      <HStack justify='between' max className={classNames(cls.AddCommentForm, {}, [className])}>
+      <HStack justify='between' max className={classNames(cls.AddCommentForm, {}, [className])} data-testid='AddCommentForm'>
         <Input
           placeholder={t('Введите комментарий')}
           value={value}
           onChange={onCommentTextChange}
           className={cls.input}
+          data-testid='AddCommentForm.Input'
         />
-        <Button onClick={onSendHandler}>{t('Отправить')}</Button>
+        <Button onClick={onSendHandler} data-testid='AddCommentForm.Button'>{t('Отправить')}</Button>
       </HStack>
     );
   },
