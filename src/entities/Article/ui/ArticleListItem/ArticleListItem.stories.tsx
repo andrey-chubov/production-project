@@ -16,7 +16,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticleListItem>;
 
-const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
+const Template: ComponentStory<typeof ArticleListItem> = (args) => (
+  <ArticleListItem {...args} />
+);
 
 const article = {
   id: '1',
@@ -99,14 +101,12 @@ export const Light = Template.bind({});
 Light.args = {
   view: ArticleView.SMALL,
   article,
-
 };
 Light.decorators = [StoreDecorator({})];
 export const LightBig = Template.bind({});
 LightBig.args = {
   view: ArticleView.BIG,
   article,
-
 };
 LightBig.decorators = [StoreDecorator({})];
 export const Dark = Template.bind({});

@@ -10,7 +10,10 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({
-  paths, isDev, apiUrl, project,
+  paths,
+  isDev,
+  apiUrl,
+  project,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
   const plugin = [
     new HTMLWebpackPlugin({
@@ -28,9 +31,7 @@ export function buildPlugins({
     }),
     new ReactRefreshWebpackPlugin({ overlay: false }),
     new CopyPlugin({
-      patterns: [
-        { from: paths.locales, to: paths.buildLocales },
-      ],
+      patterns: [{ from: paths.locales, to: paths.buildLocales }],
     }),
     new CircularDependencyPlugin({
       exclude: /node_modules/,

@@ -14,7 +14,9 @@ export default {
   },
 } as ComponentMeta<typeof PageLoader>;
 
-const Template: ComponentStory<typeof PageLoader> = (args) => <PageLoader {...args} />;
+const Template: ComponentStory<typeof PageLoader> = (args) => (
+  <PageLoader {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Light = Template.bind({});

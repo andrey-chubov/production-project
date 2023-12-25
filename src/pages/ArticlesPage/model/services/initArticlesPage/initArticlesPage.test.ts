@@ -7,7 +7,6 @@ describe('initArticlesPage.test', () => {
     const thunk = new TestAsyncThunk(initArticlesPage, {
       articlesPage: {
         _inited: false,
-
       },
     });
 
@@ -23,7 +22,6 @@ describe('initArticlesPage.test', () => {
     const thunk = new TestAsyncThunk(initArticlesPage, {
       articlesPage: {
         _inited: true,
-
       },
     });
 

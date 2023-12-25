@@ -22,15 +22,16 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <div className={classNames('app', { hovered: true, selected: false }, [theme])}>
-      <Suspense fallback=''>
+    <div
+      className={classNames('app', { hovered: true, selected: false }, [theme])}
+    >
+      <Suspense fallback="">
         <Navbar />
-        <div className='content-page'>
+        <div className="content-page">
           <Sidebar />
           {inited && <AppRouter />}
         </div>
       </Suspense>
-
     </div>
   );
 };

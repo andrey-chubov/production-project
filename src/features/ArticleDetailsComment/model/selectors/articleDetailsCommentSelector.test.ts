@@ -1,6 +1,9 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 
-import { getArticleCommentsError, getArticleCommentsIsLoading } from './articleDetailsCommentSelectors';
+import {
+  getArticleCommentsError,
+  getArticleCommentsIsLoading,
+} from './articleDetailsCommentSelectors';
 
 describe('articleDetailsCommentSelector.test', () => {
   const state: DeepPartial<StateSchema> = {
@@ -19,7 +22,8 @@ describe('articleDetailsCommentSelector.test', () => {
             username: 'admin',
             // @ts-ignore
             password: '123',
-            avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+            avatar:
+              'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
           },
         },
       },
@@ -31,7 +35,9 @@ describe('articleDetailsCommentSelector.test', () => {
   });
   test('should work with empty state ', () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getArticleCommentsIsLoading(state as StateSchema)).toEqual(undefined);
+    expect(getArticleCommentsIsLoading(state as StateSchema)).toEqual(
+      undefined,
+    );
   });
   test('should be return error ', () => {
     expect(getArticleCommentsError(state as StateSchema)).toBe('mistake');

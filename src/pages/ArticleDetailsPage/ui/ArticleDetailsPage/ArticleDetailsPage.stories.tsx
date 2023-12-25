@@ -16,7 +16,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+  <ArticleDetailsPage {...args} />
+);
 
 const article: Article = {
   id: '1',
@@ -28,7 +30,8 @@ const article: Article = {
   user: {
     id: '1',
     username: 'admin',
-    avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+    avatar:
+      'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
   },
   type: [ArticleType.IT],
   blocks: [
@@ -91,7 +94,6 @@ const article: Article = {
       ],
     },
   ],
-
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
@@ -103,9 +105,11 @@ Light.parameters = {
       url: `${__API__}/articles?_limit=3`,
       method: 'GET',
       status: 200,
-      response: [{ ...article, id: '1' },
+      response: [
+        { ...article, id: '1' },
         { ...article, id: '2 ' },
-        { ...article, id: '3' }],
+        { ...article, id: '3' },
+      ],
     },
     {
       url: `${__API__}/article-ratings?userId=2`,
@@ -119,37 +123,44 @@ Light.parameters = {
     },
   ],
 };
-Light.decorators = [StoreDecorator({
-  articleDetails: {
-    data: article,
-  },
-  user: {
-    authData: {
-      id: '2',
+Light.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      data: article,
     },
-  },
-})];
+    user: {
+      authData: {
+        id: '2',
+      },
+    },
+  }),
+];
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [StoreDecorator({
-  articleDetails: {
-    data: article,
-  },
-  user: {
-    authData: {
-      id: '2',
+Dark.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      data: article,
     },
-  },
-}), ThemeDecorator(Theme.DARK)];
+    user: {
+      authData: {
+        id: '2',
+      },
+    },
+  }),
+  ThemeDecorator(Theme.DARK),
+];
 Dark.parameters = {
   mockData: [
     {
       url: `${__API__}/articles?_limit=3`,
       method: 'GET',
       status: 200,
-      response: [{ ...article, id: '1' },
+      response: [
+        { ...article, id: '1' },
         { ...article, id: '2 ' },
-        { ...article, id: '3' }],
+        { ...article, id: '3' },
+      ],
     },
     {
       url: `${__API__}/article-ratings?userId=2`,

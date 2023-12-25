@@ -27,20 +27,23 @@ interface DropdownProps {
 }
 
 export const Dropdown = (props: DropdownProps) => {
-  const {
-    className, items, trigger, direction = 'bottom right',
-  } = props;
+  const { className, items, trigger, direction = 'bottom right' } = props;
 
   return (
-    <Menu as='div' className={classNames(cls.DropDown, {}, [className, popupCls.popup])}>
+    <Menu
+      as="div"
+      className={classNames(cls.DropDown, {}, [className, popupCls.popup])}
+    >
       <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
-      <Menu.Items className={classNames(cls.menu, {}, [mapDirectionClass[direction]])}>
-        <VStack gap='4'>
+      <Menu.Items
+        className={classNames(cls.menu, {}, [mapDirectionClass[direction]])}
+      >
+        <VStack gap="4">
           {items.map((item) => {
-            const content = ({ active }: {active: boolean}) => (
+            const content = ({ active }: { active: boolean }) => (
               <button
                 key={String(item.content)}
-                type='button'
+                type="button"
                 disabled={item.disabled}
                 onClick={item.onClick}
                 className={classNames(cls.item, { [popupCls.active]: active })}
@@ -51,19 +54,27 @@ export const Dropdown = (props: DropdownProps) => {
 
             if (item.href) {
               return (
-                <Menu.Item as={AppLink} to={item.href} disabled={item.disabled} key={item.href}>
+                <Menu.Item
+                  as={AppLink}
+                  to={item.href}
+                  disabled={item.disabled}
+                  key={item.href}
+                >
                   {content}
                 </Menu.Item>
               );
             }
 
             return (
-              <Menu.Item as={Fragment} disabled={item.disabled} key={String(item.content)}>
+              <Menu.Item
+                as={Fragment}
+                disabled={item.disabled}
+                key={String(item.content)}
+              >
                 {content}
               </Menu.Item>
             );
           })}
-
         </VStack>
       </Menu.Items>
     </Menu>

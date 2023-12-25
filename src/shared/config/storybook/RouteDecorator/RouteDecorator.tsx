@@ -5,5 +5,4 @@ export const RouteDecorator = (StoryComponent: Story) => (
   <BrowserRouter>
     <StoryComponent />
   </BrowserRouter>
-
 );

@@ -3,11 +3,7 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import {
-  ArticleSortField,
-  ArticleType,
-  ArticleView,
-} from '@/entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { ArticleViewSelectors } from '@/features/ArticleViewSelectors';
@@ -84,11 +80,14 @@ export const ArticlesPageFilters = ({
     [debouncedFetchData, dispatch],
   );
 
-  const onChangeTab = useCallback((value: ArticleType) => {
-    dispatch(articlesPageActions.setType(value));
-    dispatch(articlesPageActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
+  const onChangeTab = useCallback(
+    (value: ArticleType) => {
+      dispatch(articlesPageActions.setType(value));
+      dispatch(articlesPageActions.setPage(1));
+      fetchData();
+    },
+    [dispatch, fetchData],
+  );
   return (
     <div className={classNames('', {}, [className])}>
       <div className={cls.sortWrapper}>
@@ -107,7 +106,11 @@ export const ArticlesPageFilters = ({
           value={search}
         />
       </Card>
-      <ArticleTypeTabs value={type} onChangeType={onChangeTab} className={cls.tabs} />
+      <ArticleTypeTabs
+        value={type}
+        onChangeType={onChangeTab}
+        className={cls.tabs}
+      />
     </div>
   );
 };

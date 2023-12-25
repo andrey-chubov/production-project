@@ -8,10 +8,12 @@ import { Text, TextSize } from '@/shared/ui/Text';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecomendationsListProps {
-    className?: string;
+  className?: string;
 }
 
-export const ArticleRecomendationsList = (props: ArticleRecomendationsListProps) => {
+export const ArticleRecomendationsList = (
+  props: ArticleRecomendationsListProps,
+) => {
   const { className } = props;
   const { t } = useTranslation('article-details');
   const { isLoading, data: articles, error } = useArticleRecommendationsList(3);
@@ -21,16 +23,13 @@ export const ArticleRecomendationsList = (props: ArticleRecomendationsListProps)
   }
 
   return (
-    <VStack gap='8' className={classNames('', {}, [className])} data-testid='ArticleRecommendationList'>
-      <Text
-        size={TextSize.L}
-        title={t('Рекомендуем')}
-      />
-      <ArticleList
-        articles={articles}
-        target='_blank'
-      />
-
+    <VStack
+      gap="8"
+      className={classNames('', {}, [className])}
+      data-testid="ArticleRecommendationList"
+    >
+      <Text size={TextSize.L} title={t('Рекомендуем')} />
+      <ArticleList articles={articles} target="_blank" />
     </VStack>
   );
 };

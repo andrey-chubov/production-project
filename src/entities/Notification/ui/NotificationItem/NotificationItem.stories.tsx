@@ -16,7 +16,9 @@ export default {
   },
 } as ComponentMeta<typeof NotificationItem>;
 
-const Template: ComponentStory<typeof NotificationItem> = (args) => <NotificationItem {...args} />;
+const Template: ComponentStory<typeof NotificationItem> = (args) => (
+  <NotificationItem {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 const notification = {

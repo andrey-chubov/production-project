@@ -15,7 +15,8 @@ describe('fetchProfileData.test', () => {
       country: Country.Russia,
       city: 'Moscow',
       username: 'admin',
-      avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+      avatar:
+        'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
     };
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ data }));

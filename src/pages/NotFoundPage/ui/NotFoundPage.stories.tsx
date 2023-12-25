@@ -15,7 +15,9 @@ export default {
   },
 } as ComponentMeta<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof NotFoundPage> = (args) => <NotFoundPage />;
+const Template: ComponentStory<typeof NotFoundPage> = (args) => (
+  <NotFoundPage />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Light = Template.bind({});

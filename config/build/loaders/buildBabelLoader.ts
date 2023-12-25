@@ -16,10 +16,10 @@ export function buildBadelLoader({ isTsx, isDev }: BuildBabelLoaderProps) {
         plugins: [
           ['@babel/plugin-transform-typescript', { isTsx }],
           '@babel/plugin-transform-runtime',
-          isTsx && !isDev && [babelRemovePropsPlugin, { props: ['data-testid'] }],
+          isTsx &&
+            !isDev && [babelRemovePropsPlugin, { props: ['data-testid'] }],
         ].filter(Boolean),
       },
-
     },
   };
 }

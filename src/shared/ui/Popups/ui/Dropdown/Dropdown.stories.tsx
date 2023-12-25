@@ -13,11 +13,17 @@ export default {
     backgroundColor: { control: 'color' },
   },
   decorators: [
-    (Story) => <div style={{ padding: '150px' }}><Story /></div>,
+    (Story) => (
+      <div style={{ padding: '150px' }}>
+        <Story />
+      </div>
+    ),
   ],
 } as ComponentMeta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
+const Template: ComponentStory<typeof Dropdown> = (args) => (
+  <Dropdown {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 const items = [

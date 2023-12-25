@@ -27,16 +27,15 @@ export const ArticleDetailsPageHeader = ({
   const onBackToList = useCallback(() => {
     navigate(getRouteArticles());
   }, [navigate]);
-  const onEditArticle = useCallback(() => navigate(getRouteArticleEdit(article?.id || '')), [article?.id, navigate]);
+  const onEditArticle = useCallback(
+    () => navigate(getRouteArticleEdit(article?.id || '')),
+    [article?.id, navigate],
+  );
 
   return (
-    <HStack max justify='between' className={classNames('', {}, [className])}>
+    <HStack max justify="between" className={classNames('', {}, [className])}>
       <Button onClick={onBackToList}>{t('Вернуться к списку статей')}</Button>
-      {canEdit && (
-        <Button onClick={onEditArticle}>
-          {t('Редактировать')}
-        </Button>
-      )}
+      {canEdit && <Button onClick={onEditArticle}>{t('Редактировать')}</Button>}
     </HStack>
   );
 };

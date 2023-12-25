@@ -1,6 +1,4 @@
-import {
-  ButtonHTMLAttributes, ReactNode, memo,
-} from 'react';
+import { ButtonHTMLAttributes, ReactNode, memo } from 'react';
 
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 
@@ -52,7 +50,7 @@ export const Button = memo((props: ButtonProps) => {
 
   return (
     <button
-      type='button'
+      type="button"
       className={classNames(cls.Button, mods, [className])}
       disabled={disabled}
       {...otherProps}

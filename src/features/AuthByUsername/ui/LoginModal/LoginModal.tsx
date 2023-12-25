@@ -9,13 +9,18 @@ import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 interface LoginModalProps {
   className?: string;
   isOpen: boolean;
-  onClose: ()=>void;
+  onClose: () => void;
 }
 
 export const LoginModal = (props: LoginModalProps) => {
   const { isOpen, className, onClose } = props;
   return (
-    <Modal lazy isOpen={isOpen} onClose={onClose} className={classNames('', {}, [className])}>
+    <Modal
+      lazy
+      isOpen={isOpen}
+      onClose={onClose}
+      className={classNames('', {}, [className])}
+    >
       <Suspense fallback={<Loader />}>
         <LoginFormAsync />
       </Suspense>

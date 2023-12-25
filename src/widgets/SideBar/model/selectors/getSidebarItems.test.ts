@@ -4,7 +4,10 @@ import ArticlesIcon from '@/shared/assets/icons/articles.svg';
 import MainIcon from '@/shared/assets/icons/main.svg';
 import ProfileIcon from '@/shared/assets/icons/profile.svg';
 import {
-  getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
+  getRouteAbout,
+  getRouteArticles,
+  getRouteMain,
+  getRouteProfile,
 } from '@/shared/const/router';
 
 import { getSidebarItmes } from './getSidebarItems';

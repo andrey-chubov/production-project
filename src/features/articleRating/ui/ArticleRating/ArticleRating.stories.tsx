@@ -15,20 +15,24 @@ export default {
   },
 } as ComponentMeta<typeof ArticleRating>;
 
-const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
+const Template: ComponentStory<typeof ArticleRating> = (args) => (
+  <ArticleRating {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const withEstimation = Template.bind({});
 withEstimation.args = {
   articleId: '1',
 };
-withEstimation.decorators = [StoreDecorator({
-  user: {
-    authData: {
-      id: '2',
+withEstimation.decorators = [
+  StoreDecorator({
+    user: {
+      authData: {
+        id: '2',
+      },
     },
-  },
-})];
+  }),
+];
 withEstimation.parameters = {
   mockData: [
     {
@@ -47,13 +51,16 @@ export const noEstimationDark = Template.bind({});
 noEstimationDark.args = {
   articleId: '2',
 };
-noEstimationDark.decorators = [StoreDecorator({
-  user: {
-    authData: {
-      id: '2',
+noEstimationDark.decorators = [
+  StoreDecorator({
+    user: {
+      authData: {
+        id: '2',
+      },
     },
-  },
-}), ThemeDecorator(Theme.DARK)];
+  }),
+  ThemeDecorator(Theme.DARK),
+];
 noEstimationDark.parameters = {
   mockData: [
     {

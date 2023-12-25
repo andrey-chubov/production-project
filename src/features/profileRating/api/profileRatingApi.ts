@@ -8,7 +8,7 @@ interface GetProfileRating {
 
 interface ProfileRating extends GetProfileRating {
   rate: number;
-  feedback?: string
+  feedback?: string;
 }
 
 const profileRatingApi = rtkApi.injectEndpoints({

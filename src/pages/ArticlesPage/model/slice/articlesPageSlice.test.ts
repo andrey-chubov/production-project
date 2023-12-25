@@ -163,7 +163,12 @@ describe('articlesPageslice.test', () => {
     expect(
       articlesPageReducer(
         state as ArticlesPageSchema,
-        fetchArticlesList.rejected(new Error('error'), '', { replace: false }, ''),
+        fetchArticlesList.rejected(
+          new Error('error'),
+          '',
+          { replace: false },
+          '',
+        ),
       ),
     ).toEqual({ isLoading: false, error: '' });
   });

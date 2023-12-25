@@ -15,27 +15,36 @@ export default {
   },
 } as ComponentMeta<typeof Sidebar>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
+const Template: ComponentStory<typeof Sidebar> = (args) => (
+  <Sidebar {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-  user: {
-    authData: {},
-  },
-})];
+Light.decorators = [
+  StoreDecorator({
+    user: {
+      authData: {},
+    },
+  }),
+];
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [StoreDecorator({
-  user: {
-    authData: {},
-  },
-}), ThemeDecorator(Theme.DARK)];
+Dark.decorators = [
+  StoreDecorator({
+    user: {
+      authData: {},
+    },
+  }),
+  ThemeDecorator(Theme.DARK),
+];
 export const NoAuth = Template.bind({});
 NoAuth.args = {};
-NoAuth.decorators = [StoreDecorator({
-  user: {
-    authData: undefined,
-  },
-})];
+NoAuth.decorators = [
+  StoreDecorator({
+    user: {
+      authData: undefined,
+    },
+  }),
+];

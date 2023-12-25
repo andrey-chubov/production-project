@@ -1,4 +1,7 @@
-import { addCommentFormAction, addCommentFormReducer } from './addCommentFormSlice';
+import {
+  addCommentFormAction,
+  addCommentFormReducer,
+} from './addCommentFormSlice';
 import { AddCommentFormSchema } from '../types/comment';
 
 describe('addCommentFromSlice.test', () => {
@@ -7,7 +10,10 @@ describe('addCommentFromSlice.test', () => {
       text: '',
     };
     expect(
-      addCommentFormReducer(state as AddCommentFormSchema, addCommentFormAction.setText('text')),
+      addCommentFormReducer(
+        state as AddCommentFormSchema,
+        addCommentFormAction.setText('text'),
+      ),
     ).toEqual({ text: 'text' });
   });
 });

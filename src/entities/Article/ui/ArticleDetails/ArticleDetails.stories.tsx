@@ -17,7 +17,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticleDetails>;
 
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
+const Template: ComponentStory<typeof ArticleDetails> = (args) => (
+  <ArticleDetails {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 
@@ -31,7 +33,8 @@ const article: Article = {
   user: {
     id: '1',
     username: 'admin',
-    avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+    avatar:
+      'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
   },
   type: [ArticleType.IT],
   blocks: [
@@ -94,35 +97,43 @@ const article: Article = {
       ],
     },
   ],
-
 };
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-  articleDetails: {
-    data: article,
-  },
-})];
+Light.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      data: article,
+    },
+  }),
+];
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [StoreDecorator({
-  articleDetails: {
-    data: article,
-  },
-}), ThemeDecorator(Theme.DARK)];
+Dark.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      data: article,
+    },
+  }),
+  ThemeDecorator(Theme.DARK),
+];
 
 export const Loading = Template.bind({});
 Loading.args = {};
-Loading.decorators = [StoreDecorator({
-  articleDetails: {
-    isLoading: true,
-  },
-})];
+Loading.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      isLoading: true,
+    },
+  }),
+];
 export const Error = Template.bind({});
 Error.args = {};
-Error.decorators = [StoreDecorator({
-  articleDetails: {
-    error: 'error',
-  },
-})];
+Error.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      error: 'error',
+    },
+  }),
+];

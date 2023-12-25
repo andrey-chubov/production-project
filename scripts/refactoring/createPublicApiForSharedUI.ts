@@ -8,7 +8,7 @@ project.addSourceFilesAtPaths('src/**/*.ts');
 project.addSourceFilesAtPaths('src/**/*.tsx');
 
 const layers = ['app', 'shared', 'entities', 'features', 'widgets', 'pages'];
-function isAbsolute(value:string) {
+function isAbsolute(value: string) {
   return layers.some((layer) => value.startsWith(layer));
 }
 
@@ -22,7 +22,9 @@ componentsDirs?.forEach((directory) => {
   const indexFile = directory.getSourceFile(indexFilePath);
   if (!indexFile) {
     const sourceCode = `export * from './${directory.getBaseName()}';`;
-    const file = directory.createSourceFile(indexFilePath, sourceCode, { overwrite: true });
+    const file = directory.createSourceFile(indexFilePath, sourceCode, {
+      overwrite: true,
+    });
     file.save();
   }
 });

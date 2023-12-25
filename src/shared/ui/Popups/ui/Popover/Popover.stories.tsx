@@ -16,7 +16,9 @@ export default {
   },
 } as ComponentMeta<typeof Popover>;
 
-const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />;
+const Template: ComponentStory<typeof Popover> = (args) => (
+  <Popover {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Light = Template.bind({});

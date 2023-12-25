@@ -21,8 +21,7 @@ const Template: ComponentStory<typeof AddCommentForm> = (args) => (
 export const Normal = Template.bind({});
 Normal.args = {
   value: 'text',
-  onSendHandler() {
-  },
+  onSendHandler() {},
   onCommentTextChange(text) {
     'text';
   },

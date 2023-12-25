@@ -1,13 +1,14 @@
-import {
-  memo, useCallback,
-} from 'react';
+import { memo, useCallback } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 
 import {
-  Article, ArticleView, ArticleListItem, ArticleListItemSkeleton,
+  Article,
+  ArticleView,
+  ArticleListItem,
+  ArticleListItemSkeleton,
 } from '@/entities/Article';
 import { ARTICLE_INDEX } from '@/shared/const/localstorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -15,43 +16,62 @@ import { Text, TextSize } from '@/shared/ui/Text';
 
 import cls from './ArticleInfiniteList.module.scss';
 
-import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
+import {
+  getArticlesPageError,
+  getArticlesPageIsLoading,
+  getArticlesPageView,
+} from '../../model/selectors/articlesPageSelectors';
 import { getArticles } from '../../model/slice/articlesPageSlice';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 interface ArticleInfiniteListProps {
-className?: string
-loadMore: ()=>void;
+  className?: string;
+  loadMore: () => void;
 }
 
 const Footer = memo(() => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const view = useSelector(getArticlesPageView);
 
-  const getSkeletons = useCallback((view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3).fill(0)
-    .map((_item, index) => (<ArticleListItemSkeleton view={view} key={index} className='' />)), []);
+  const getSkeletons = useCallback(
+    (view: ArticleView) =>
+      new Array(view === ArticleView.SMALL ? 9 : 3)
+        .fill(0)
+        .map((_item, index) => (
+          <ArticleListItemSkeleton view={view} key={index} className="" />
+        )),
+    [],
+  );
 
   if (isLoading) {
-    return (
-      <div className={cls.skeleton}>
-        {getSkeletons(view)}
-      </div>
-    );
+    return <div className={cls.skeleton}>{getSkeletons(view)}</div>;
   }
 
-  return (<div />);
+  return <div />;
 });
 
 const Header = memo(() => <ArticlesPageFilters />);
 
-const ItemContainerComp = (view: ArticleView) => ({ height, width, index }:{height: number; width: number; index: number}) => (
-  <div className={cls.itemContainer}>
-    <ArticleListItemSkeleton view={view} key={index} className={cls.card} />
-  </div>
+const ItemContainerComp =
+  (view: ArticleView) =>
+  ({
+    height,
+    width,
+    index,
+  }: {
+    height: number;
+    width: number;
+    index: number;
+  }) => (
+    <div className={cls.itemContainer}>
+      <ArticleListItemSkeleton view={view} key={index} className={cls.card} />
+    </div>
+  );
 
-);
-
-export const ArticleInfiniteList = ({ className, loadMore }: ArticleInfiniteListProps) => {
+export const ArticleInfiniteList = ({
+  className,
+  loadMore,
+}: ArticleInfiniteListProps) => {
   const { t } = useTranslation('article');
   const articles = useSelector(getArticles.selectAll);
   const error = useSelector(getArticlesPageError);
@@ -83,7 +103,13 @@ export const ArticleInfiniteList = ({ className, loadMore }: ArticleInfiniteList
 
   if (view === ArticleView.SMALL) {
     return (
-      <div className={classNames(cls.ArticleInfiniteList, {}, [className, cls[view]])} data-testid='ArticleInfinityList'>
+      <div
+        className={classNames(cls.ArticleInfiniteList, {}, [
+          className,
+          cls[view],
+        ])}
+        data-testid="ArticleInfinityList"
+      >
         <VirtuosoGrid
           totalCount={articles.length}
           data={articles}
@@ -101,12 +127,16 @@ export const ArticleInfiniteList = ({ className, loadMore }: ArticleInfiniteList
           }}
         />
       </div>
-
     );
   }
 
   return (
-    <div className={classNames(cls.ArticleInfiniteList, {}, [className, cls[view]])}>
+    <div
+      className={classNames(cls.ArticleInfiniteList, {}, [
+        className,
+        cls[view],
+      ])}
+    >
       <Virtuoso
         style={{ height: '100%' }}
         data={articles}
@@ -118,8 +148,6 @@ export const ArticleInfiniteList = ({ className, loadMore }: ArticleInfiniteList
           Footer,
         }}
       />
-
     </div>
-
   );
 };

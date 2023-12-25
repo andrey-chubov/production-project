@@ -2,7 +2,17 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 
 import {
-  getArticlesPageError, getArticlesPageHasMore, getArticlesPageInited, getArticlesPageIsLoading, getArticlesPageLimit, getArticlesPageNumber, getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageType, getArticlesPageView,
+  getArticlesPageError,
+  getArticlesPageHasMore,
+  getArticlesPageInited,
+  getArticlesPageIsLoading,
+  getArticlesPageLimit,
+  getArticlesPageNumber,
+  getArticlesPageOrder,
+  getArticlesPageSearch,
+  getArticlesPageSort,
+  getArticlesPageType,
+  getArticlesPageView,
 } from './articlesPageSelectors';
 
 describe('getAriclesPageIsLoading.test', () => {
@@ -44,7 +54,9 @@ describe('getArticlesPageView.test', () => {
   });
   test('should work with empty state ', () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getArticlesPageView(state as StateSchema)).toEqual(ArticleView.SMALL);
+    expect(getArticlesPageView(state as StateSchema)).toEqual(
+      ArticleView.SMALL,
+    );
   });
 });
 describe('getArticlesPageNumber.test', () => {
@@ -124,11 +136,15 @@ describe('getArticlesPageSort.test', () => {
         sort: ArticleSortField.TITLE,
       },
     };
-    expect(getArticlesPageSort(state as StateSchema)).toBe(ArticleSortField.TITLE);
+    expect(getArticlesPageSort(state as StateSchema)).toBe(
+      ArticleSortField.TITLE,
+    );
   });
   test('should work with empty state ', () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getArticlesPageSort(state as StateSchema)).toBe(ArticleSortField.CREATED);
+    expect(getArticlesPageSort(state as StateSchema)).toBe(
+      ArticleSortField.CREATED,
+    );
   });
 });
 describe('getArticlesPageSearch.test', () => {

@@ -18,10 +18,7 @@ import { Text } from '@/shared/ui/Text';
 import cls from './ArticleListItem.module.scss';
 
 import { ArticleView } from '../../model/const/const';
-import {
-  Article,
-  ArticleTextBlock,
-} from '../../model/types/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 interface ArticleListItemProps {
@@ -29,13 +26,11 @@ interface ArticleListItemProps {
   article: Article;
   view: ArticleView;
   target?: HTMLAttributeAnchorTarget;
-  index?: number
+  index?: number;
 }
 
 export const ArticleListItem = memo(
-  ({
-    className, article, view, target, index,
-  }: ArticleListItemProps) => {
+  ({ className, article, view, target, index }: ArticleListItemProps) => {
     const { t } = useTranslation('article');
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
@@ -56,7 +51,7 @@ export const ArticleListItem = memo(
 
       return (
         <div
-          data-testid='ArticleListItem'
+          data-testid="ArticleListItem"
           className={classNames(cls.ArticleListItem, {}, [
             className,
             cls[view],
@@ -74,7 +69,7 @@ export const ArticleListItem = memo(
               src={article.img}
               alt={article.title}
               className={cls.img}
-              fallback={<Skeleton width='100%' height={250} />}
+              fallback={<Skeleton width="100%" height={250} />}
             />
             {textBlock && (
               <ArticleTextBlockComponent
@@ -97,7 +92,7 @@ export const ArticleListItem = memo(
     }
     return (
       <AppLink
-        data-testid='ArticleListItem'
+        data-testid="ArticleListItem"
         to={getRouteArticleDetails(article.id)}
         className={classNames('', {}, [className, cls[view]])}
         target={target}

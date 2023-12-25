@@ -9,10 +9,10 @@ const recommendationsApi = rtkApi.injectEndpoints({
         params: {
           _limit: limit,
         },
-
       }),
     }),
   }),
 });
 
-export const useArticleRecommendationsList = recommendationsApi.useGetArticleRecommendationsListQuery;
+export const useArticleRecommendationsList =
+  recommendationsApi.useGetArticleRecommendationsListQuery;

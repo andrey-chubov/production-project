@@ -19,16 +19,12 @@ const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary = Template.bind({});
 Primary.args = {
-
   placeholder: 'Text',
   value: 'example',
-
 };
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
-
   placeholder: 'Text',
   value: 'example',
-
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];

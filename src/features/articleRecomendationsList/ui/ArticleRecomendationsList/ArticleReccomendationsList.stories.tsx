@@ -11,10 +11,11 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-
 } as ComponentMeta<typeof ArticleRecomendationsList>;
 
-const Template: ComponentStory<typeof ArticleRecomendationsList> = (args) => <ArticleRecomendationsList {...args} />;
+const Template: ComponentStory<typeof ArticleRecomendationsList> = (args) => (
+  <ArticleRecomendationsList {...args} />
+);
 
 const article: Article = {
   id: '1',
@@ -26,7 +27,8 @@ const article: Article = {
   user: {
     id: '1',
     username: 'admin',
-    avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+    avatar:
+      'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
   },
   type: [ArticleType.IT],
   blocks: [
@@ -89,7 +91,6 @@ const article: Article = {
       ],
     },
   ],
-
 };
 
 export const Normal = Template.bind({});
@@ -101,9 +102,11 @@ Normal.parameters = {
       url: `${__API__}/articles?_limit=3`,
       method: 'GET',
       status: 200,
-      response: [{ ...article, id: '1' },
+      response: [
+        { ...article, id: '1' },
         { ...article, id: '2 ' },
-        { ...article, id: '3' }],
+        { ...article, id: '3' },
+      ],
     },
   ],
 };

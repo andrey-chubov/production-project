@@ -13,7 +13,8 @@ const data = {
     id: '1',
     username: 'admin',
     password: '123',
-    avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+    avatar:
+      'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
   },
   type: [],
   blocks: [],

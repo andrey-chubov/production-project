@@ -6,12 +6,16 @@ describe('loginSlice.test', () => {
     const state: DeepPartial<LoginShema> = {
       username: '123',
     };
-    expect(loginReducer(state as LoginShema, loginAction.setUsername('123'))).toEqual({ username: '123' });
+    expect(
+      loginReducer(state as LoginShema, loginAction.setUsername('123')),
+    ).toEqual({ username: '123' });
   });
   test('set password ', () => {
     const state: DeepPartial<LoginShema> = {
       password: '123',
     };
-    expect(loginReducer(state as LoginShema, loginAction.setPassword('123'))).toEqual({ password: '123' });
+    expect(
+      loginReducer(state as LoginShema, loginAction.setPassword('123')),
+    ).toEqual({ password: '123' });
   });
 });

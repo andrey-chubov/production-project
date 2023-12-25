@@ -30,7 +30,11 @@ export const AddCommentForm = memo(
 
     if (error) {
       return (
-        <HStack justify='center' max className={classNames(cls.AddCommentForm, {}, [className])}>
+        <HStack
+          justify="center"
+          max
+          className={classNames(cls.AddCommentForm, {}, [className])}
+        >
           <Text
             title={t('Произошла ошибка формы')}
             text={t('Поробуйте обновить страницу')}
@@ -42,15 +46,22 @@ export const AddCommentForm = memo(
     }
 
     return (
-      <HStack justify='between' max className={classNames(cls.AddCommentForm, {}, [className])} data-testid='AddCommentForm'>
+      <HStack
+        justify="between"
+        max
+        className={classNames(cls.AddCommentForm, {}, [className])}
+        data-testid="AddCommentForm"
+      >
         <Input
           placeholder={t('Введите комментарий')}
           value={value}
           onChange={onCommentTextChange}
           className={cls.input}
-          data-testid='AddCommentForm.Input'
+          data-testid="AddCommentForm.Input"
         />
-        <Button onClick={onSendHandler} data-testid='AddCommentForm.Button'>{t('Отправить')}</Button>
+        <Button onClick={onSendHandler} data-testid="AddCommentForm.Button">
+          {t('Отправить')}
+        </Button>
       </HStack>
     );
   },

@@ -10,7 +10,9 @@ export default {
   },
 } as ComponentMeta<typeof CurrencySelect>;
 
-const Template: ComponentStory<typeof CurrencySelect> = (args) => <CurrencySelect {...args} />;
+const Template: ComponentStory<typeof CurrencySelect> = (args) => (
+  <CurrencySelect {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary = Template.bind({});

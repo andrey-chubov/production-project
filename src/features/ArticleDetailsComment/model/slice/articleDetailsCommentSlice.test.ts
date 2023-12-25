@@ -9,7 +9,10 @@ describe('articleDetailsCommentsSlice.test', () => {
       error: undefined,
     };
     expect(
-      articleDetailsCommentsReducer(state as ArticleDetailsCommentsSchema, fetchCommentsByArticleId.pending),
+      articleDetailsCommentsReducer(
+        state as ArticleDetailsCommentsSchema,
+        fetchCommentsByArticleId.pending,
+      ),
     ).toEqual({ isLoading: true, error: undefined });
   });
 });

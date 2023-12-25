@@ -25,7 +25,7 @@ export const ArticleListItemSkeleton = memo(
         >
           <Card>
             <div className={cls.header}>
-              <Skeleton height={30} width={30} border='50%' />
+              <Skeleton height={30} width={30} border="50%" />
               <Skeleton height={16} width={150} className={cls.username} />
               <Skeleton height={16} width={150} className={cls.date} />
             </div>
@@ -43,7 +43,6 @@ export const ArticleListItemSkeleton = memo(
         <Card>
           <div className={cls.imageWrapper}>
             <Skeleton width={200} height={200} className={cls.image} />
-
           </div>
           <div className={cls.infoWrapper}>
             <Skeleton width={130} height={16} />

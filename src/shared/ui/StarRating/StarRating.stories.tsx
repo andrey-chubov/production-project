@@ -13,7 +13,9 @@ export default {
   },
 } as ComponentMeta<typeof StarRating>;
 
-const Template: ComponentStory<typeof StarRating> = (args) => <StarRating {...args} />;
+const Template: ComponentStory<typeof StarRating> = (args) => (
+  <StarRating {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const SelectedStars = Template.bind({});

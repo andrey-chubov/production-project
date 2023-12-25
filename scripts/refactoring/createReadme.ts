@@ -20,7 +20,9 @@ entitiesDirs?.forEach((directory) => {
   const indexFile = directory.getSourceFile(indexFilePath);
   if (!indexFile) {
     const sourceCode = `'${directory.getBaseName()}'`;
-    const file = directory.createSourceFile(indexFilePath, sourceCode, { overwrite: true });
+    const file = directory.createSourceFile(indexFilePath, sourceCode, {
+      overwrite: true,
+    });
     file.save();
   }
 });
@@ -30,7 +32,9 @@ featuresDirs?.forEach((directory) => {
   const indexFile = directory.getSourceFile(indexFilePath);
   if (!indexFile) {
     const sourceCode = `'${directory.getBaseName()}'`;
-    const file = directory.createSourceFile(indexFilePath, sourceCode, { overwrite: true });
+    const file = directory.createSourceFile(indexFilePath, sourceCode, {
+      overwrite: true,
+    });
     file.save();
   }
 });

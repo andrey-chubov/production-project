@@ -15,7 +15,9 @@ export default {
   },
 } as ComponentMeta<typeof AppImage>;
 
-const Template: ComponentStory<typeof AppImage> = (args) => <AppImage {...args} />;
+const Template: ComponentStory<typeof AppImage> = (args) => (
+  <AppImage {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Light = Template.bind({});

@@ -1,9 +1,10 @@
-import {
-  ReactNode, memo, useCallback, useEffect,
-} from 'react';
+import { ReactNode, memo, useCallback, useEffect } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import {
+  AnimationProvider,
+  useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 import cls from './Drawer.module.scss';
@@ -15,7 +16,7 @@ interface DrawerProps {
   className?: string;
   children?: ReactNode;
   isOpen?: boolean;
-  onClose? : ()=>void;
+  onClose?: () => void;
   lazy?: boolean;
 }
 
@@ -25,13 +26,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
   const { Spring, Gesture } = useAnimationLibs();
   const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
   const { theme } = useTheme();
-  const {
-    className,
-    children,
-    onClose,
-    isOpen,
-    lazy,
-  } = props;
+  const { className, children, onClose, isOpen, lazy } = props;
 
   const openDrawer = useCallback(() => {
     api.start({ y: 0, immediate: false });
@@ -73,7 +68,10 @@ export const DrawerContent = memo((props: DrawerProps) => {
       }
     },
     {
-      from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
+      from: () => [0, y.get()],
+      filterTaps: true,
+      bounds: { top: 0 },
+      rubberband: true,
     },
   );
 
@@ -85,7 +83,9 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
   return (
     <Portal>
-      <div className={classNames(cls.Drawer, {}, [className, theme, 'app_drawer'])}>
+      <div
+        className={classNames(cls.Drawer, {}, [className, theme, 'app_drawer'])}
+      >
         <Overlay onClick={close} />
         <Spring.a.div
           className={cls.sheet}
@@ -99,7 +99,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
   );
 });
 
-const DrawerAsync = (props : DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
   const { isLoaded } = useAnimationLibs();
 
   if (!isLoaded) {
@@ -109,7 +109,7 @@ const DrawerAsync = (props : DrawerProps) => {
   return <DrawerContent {...props} />;
 };
 
-export const Drawer = (props : DrawerProps) => (
+export const Drawer = (props: DrawerProps) => (
   <AnimationProvider>
     <DrawerAsync {...props} />
   </AnimationProvider>

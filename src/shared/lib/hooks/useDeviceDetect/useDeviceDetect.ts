@@ -36,5 +36,5 @@ export const useDeviceDetect = () => {
     };
   }, []);
 
-  return (width <= 768);
+  return width <= 768;
 };

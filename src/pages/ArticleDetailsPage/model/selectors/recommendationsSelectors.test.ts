@@ -1,6 +1,9 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 
-import { getArticleRecommendationsError, getArticleRecommendationsIsLoading } from './recommendationsSelectors';
+import {
+  getArticleRecommendationsError,
+  getArticleRecommendationsIsLoading,
+} from './recommendationsSelectors';
 
 describe('recommendationsSelectors.test', () => {
   const state: DeepPartial<StateSchema> = {
@@ -19,7 +22,8 @@ describe('recommendationsSelectors.test', () => {
             username: 'admin',
             // @ts-ignore
             password: '123',
-            avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+            avatar:
+              'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
           },
         },
       },
@@ -31,13 +35,19 @@ describe('recommendationsSelectors.test', () => {
   });
   test('should work with empty state ', () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getArticleRecommendationsIsLoading(state as StateSchema)).toEqual(undefined);
+    expect(getArticleRecommendationsIsLoading(state as StateSchema)).toEqual(
+      undefined,
+    );
   });
   test('should be return error ', () => {
-    expect(getArticleRecommendationsError(state as StateSchema)).toBe('mistake');
+    expect(getArticleRecommendationsError(state as StateSchema)).toBe(
+      'mistake',
+    );
   });
   test('should work with empty state ', () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getArticleRecommendationsError(state as StateSchema)).toEqual(undefined);
+    expect(getArticleRecommendationsError(state as StateSchema)).toEqual(
+      undefined,
+    );
   });
 });

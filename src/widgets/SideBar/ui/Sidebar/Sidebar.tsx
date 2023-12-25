@@ -14,7 +14,7 @@ import { getSidebarItmes } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
-className?: string;
+  className?: string;
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
@@ -26,31 +26,32 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   };
 
   const itemList = useMemo(
-    () => sidebarItemList.map((item) => (
-      <SidebarItem
-        key={item.path}
-        item={item}
-        collapsed={collapsed}
-      />
-    )),
+    () =>
+      sidebarItemList.map((item) => (
+        <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+      )),
     [collapsed, sidebarItemList],
   );
 
   return (
-    <aside className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])} data-testid='sidebar'>
+    <aside
+      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+        className,
+      ])}
+      data-testid="sidebar"
+    >
       <Button
-        type='button'
+        type="button"
         onClick={onToggle}
         className={cls.collapseButton}
-        data-testid='toggleBtn'
+        data-testid="toggleBtn"
         theme={ButtonTheme.BACKGROUND_INVERTED}
         square
         size={ButtonSize.L}
       >
         {collapsed ? '>' : '<'}
-
       </Button>
-      <VStack role='navigation' gap='8' className={cls.items}>
+      <VStack role="navigation" gap="8" className={cls.items}>
         {itemList}
       </VStack>
       <div className={cls.switchers}>

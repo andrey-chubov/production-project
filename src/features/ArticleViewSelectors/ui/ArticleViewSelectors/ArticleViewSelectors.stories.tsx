@@ -15,7 +15,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticleViewSelectors>;
 
-const Template: ComponentStory<typeof ArticleViewSelectors> = (args) => <ArticleViewSelectors {...args} />;
+const Template: ComponentStory<typeof ArticleViewSelectors> = (args) => (
+  <ArticleViewSelectors {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Light = Template.bind({});

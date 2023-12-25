@@ -3,7 +3,10 @@ import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 
@@ -38,11 +41,13 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <div className={classNames(cls.ArticlesPage, {}, [className])} data-testid='ArticlesPage'>
+      <div
+        className={classNames(cls.ArticlesPage, {}, [className])}
+        data-testid="ArticlesPage"
+      >
         <ArticleInfiniteList className={cls.list} loadMore={onLoadNextPart} />
       </div>
     </DynamicModuleLoader>
-
   );
 };
 export default ArticlesPage;

@@ -5,7 +5,11 @@ import { useSelector } from 'react-redux';
 
 import {
   AddCommentForm,
-  CommentList, addCommentFormAction, addCommentFormReducer, getAddCommentFormError, getAddCommentFormText,
+  CommentList,
+  addCommentFormAction,
+  addCommentFormReducer,
+  getAddCommentFormError,
+  getAddCommentFormText,
 } from '@/entities/Comment';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
@@ -35,57 +39,53 @@ const reducers: ReducersList = {
   addCommentForm: addCommentFormReducer,
 };
 
-const ArticleDetailsComment = memo(({
-  className,
-  id,
-}: ArticleDetailsCommentProps) => {
-  const { t } = useTranslation('article-details');
-  const comments = useSelector(getArticleComments.selectAll);
-  const isLoading = useSelector(getArticleCommentsIsLoading);
-  const dispatch = useAppDispatch();
-  const text = useSelector(getAddCommentFormText) || '';
-  const error = useSelector(getAddCommentFormError);
+const ArticleDetailsComment = memo(
+  ({ className, id }: ArticleDetailsCommentProps) => {
+    const { t } = useTranslation('article-details');
+    const comments = useSelector(getArticleComments.selectAll);
+    const isLoading = useSelector(getArticleCommentsIsLoading);
+    const dispatch = useAppDispatch();
+    const text = useSelector(getAddCommentFormText) || '';
+    const error = useSelector(getAddCommentFormError);
 
-  useInitialEffect(() => {
-    dispatch(fetchCommentsByArticleId(id));
-  });
+    useInitialEffect(() => {
+      dispatch(fetchCommentsByArticleId(id));
+    });
 
-  const onSendComment = useCallback(
-    (text: string) => {
-      dispatch(addCommentForArticle(text));
-    },
-    [dispatch],
-  );
+    const onSendComment = useCallback(
+      (text: string) => {
+        dispatch(addCommentForArticle(text));
+      },
+      [dispatch],
+    );
 
-  const onCommentTextChange = useCallback(
-    (value: string) => {
-      dispatch(addCommentFormAction.setText(value));
-    },
-    [dispatch],
-  );
+    const onCommentTextChange = useCallback(
+      (value: string) => {
+        dispatch(addCommentFormAction.setText(value));
+      },
+      [dispatch],
+    );
 
-  const onSendHandler = useCallback(() => {
-    onSendComment(text || '');
-    onCommentTextChange('');
-  }, [onCommentTextChange, onSendComment, text]);
+    const onSendHandler = useCallback(() => {
+      onSendComment(text || '');
+      onCommentTextChange('');
+    }, [onCommentTextChange, onSendComment, text]);
 
-  return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <VStack gap='8' max className={classNames('', {}, [className])}>
-        <Text
-          size={TextSize.L}
-          title={t('Комментарии')}
-        />
-        <AddCommentForm
-          onCommentTextChange={onCommentTextChange}
-          onSendHandler={onSendHandler}
-          value={text}
-          error={error}
-        />
-        <CommentList comments={comments} isLoading={isLoading} />
-      </VStack>
-    </DynamicModuleLoader>
-  );
-});
+    return (
+      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <VStack gap="8" max className={classNames('', {}, [className])}>
+          <Text size={TextSize.L} title={t('Комментарии')} />
+          <AddCommentForm
+            onCommentTextChange={onCommentTextChange}
+            onSendHandler={onSendHandler}
+            value={text}
+            error={error}
+          />
+          <CommentList comments={comments} isLoading={isLoading} />
+        </VStack>
+      </DynamicModuleLoader>
+    );
+  },
+);
 
 export default ArticleDetailsComment;

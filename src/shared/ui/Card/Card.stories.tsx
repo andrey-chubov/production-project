@@ -21,11 +21,11 @@ const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Light = Template.bind({});
 Light.args = {
-  children: <Text text='text' title='test' />,
+  children: <Text text="text" title="test" />,
 };
 Light.decorators = [StoreDecorator({})];
 export const Dark = Template.bind({});
 Dark.args = {
-  children: <Text text='text' title='test' />,
+  children: <Text text="text" title="test" />,
 };
 Dark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];

@@ -12,47 +12,43 @@ import { Popover } from '@/shared/ui/Popups';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
-className?: string
+  className?: string;
 }
 
-export const NotificationButton = memo(({ className }: NotificationButtonProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const isMobile = useDeviceDetect();
+export const NotificationButton = memo(
+  ({ className }: NotificationButtonProps) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const isMobile = useDeviceDetect();
 
-  const onCloseDrawer = useCallback(() => {
-    setIsOpen(false);
-  }, []);
+    const onCloseDrawer = useCallback(() => {
+      setIsOpen(false);
+    }, []);
 
-  const onOpenDrawer = useCallback(() => {
-    setIsOpen(true);
-  }, []);
-  const trigger = (
-    <Button theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
-      <Icon Svg={NotificationsIcon} inverted />
-    </Button>
-  );
+    const onOpenDrawer = useCallback(() => {
+      setIsOpen(true);
+    }, []);
+    const trigger = (
+      <Button theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
+        <Icon Svg={NotificationsIcon} inverted />
+      </Button>
+    );
 
-  if (isMobile) {
+    if (isMobile) {
+      return (
+        <div>
+          {trigger}
+          <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+            <NotificationList />
+          </Drawer>
+        </div>
+      );
+    }
     return (
       <div>
-        {trigger}
-        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-          <NotificationList />
-        </Drawer>
+        <Popover className={classNames('', {}, [className])} trigger={trigger}>
+          <NotificationList className={cls.notifications} />
+        </Popover>
       </div>
-
     );
-  }
-  return (
-    <div>
-      <Popover
-        className={classNames('', {}, [className])}
-        trigger={trigger}
-      >
-        <NotificationList className={cls.notifications} />
-      </Popover>
-
-    </div>
-
-  );
-});
+  },
+);

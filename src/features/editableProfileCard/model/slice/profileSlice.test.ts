@@ -76,7 +76,10 @@ describe('profileSlice.test', () => {
         updateProfileData.fulfilled(data, ''),
       ),
     ).toEqual({
-      isLoading: false, validateErrors: undefined, data, form: data,
+      isLoading: false,
+      validateErrors: undefined,
+      data,
+      form: data,
     });
   });
 });

@@ -7,7 +7,10 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ReducersList, DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  ReducersList,
+  DynamicModuleLoader,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/Stack';
@@ -24,8 +27,8 @@ import { profileAction, profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {
-    className?: string;
-    id?: string;
+  className?: string;
+  id?: string;
 }
 
 const reducers: ReducersList = {
@@ -108,17 +111,17 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <VStack gap='8' max className={classNames('', {}, [className])}>
+      <VStack gap="8" max className={classNames('', {}, [className])}>
         <EditableProfileCardHeader />
-        {validateErrors?.length
-            && validateErrors.map((err) => (
-              <Text
-                theme={TextTheme.ERROR}
-                text={validateErrorsTranslates[err]}
-                key={err}
-                data-testid='EditableProfileCard.Error'
-              />
-            ))}
+        {validateErrors?.length &&
+          validateErrors.map((err) => (
+            <Text
+              theme={TextTheme.ERROR}
+              text={validateErrorsTranslates[err]}
+              key={err}
+              data-testid="EditableProfileCard.Error"
+            />
+          ))}
         <ProfileCard
           data={formData}
           isLoading={isLoading}

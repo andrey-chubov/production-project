@@ -19,8 +19,8 @@ export interface ListBoxItem {
 }
 
 interface ListBoxProps {
-  className?: string
-  items?: ListBoxItem[]
+  className?: string;
+  items?: ListBoxItem[];
   value?: string;
   defaultValue?: string;
   onChange: (value: string) => void;
@@ -31,28 +31,34 @@ interface ListBoxProps {
 
 export const ListBox = (props: ListBoxProps) => {
   const {
-    className, items, value, defaultValue, onChange, readonly, direction = 'bottom left', label,
+    className,
+    items,
+    value,
+    defaultValue,
+    onChange,
+    readonly,
+    direction = 'bottom left',
+    label,
   } = props;
 
   return (
-    <HStack gap='4'>
+    <HStack gap="4">
       {label && <span>{`${label} >`}</span>}
       <HListBox
-        as='div'
+        as="div"
         className={classNames('', {}, [className, popupCls.popup])}
         value={value}
         onChange={onChange}
         disabled={readonly}
       >
-        <HListBox.Button
-          className={cls.trigger}
-        >
-          <Button disabled={readonly}>
-            {value || defaultValue}
-          </Button>
-
+        <HListBox.Button className={cls.trigger}>
+          <Button disabled={readonly}>{value || defaultValue}</Button>
         </HListBox.Button>
-        <HListBox.Options className={classNames(cls.options, {}, [mapDirectionClass[direction]])}>
+        <HListBox.Options
+          className={classNames(cls.options, {}, [
+            mapDirectionClass[direction],
+          ])}
+        >
           {items?.map((item) => (
             <HListBox.Option
               key={item.value}
@@ -62,10 +68,14 @@ export const ListBox = (props: ListBoxProps) => {
             >
               {({ active, selected }) => (
                 <li
-                  className={classNames(cls.item, {
-                    [popupCls.active]: active,
-                    [popupCls.disabled]: item.disabled,
-                  }, [className])}
+                  className={classNames(
+                    cls.item,
+                    {
+                      [popupCls.active]: active,
+                      [popupCls.disabled]: item.disabled,
+                    },
+                    [className],
+                  )}
                 >
                   {selected && '!!!'}
                   {item.content}
@@ -76,6 +86,5 @@ export const ListBox = (props: ListBoxProps) => {
         </HListBox.Options>
       </HListBox>
     </HStack>
-
   );
 };

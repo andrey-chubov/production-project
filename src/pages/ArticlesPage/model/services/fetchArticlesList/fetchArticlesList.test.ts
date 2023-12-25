@@ -21,7 +21,8 @@ describe('fetchArticlesList.test', () => {
               id: '1',
               username: 'admin',
               password: '123',
-              avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+              avatar:
+                'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
             },
           },
         },
@@ -35,7 +36,6 @@ describe('fetchArticlesList.test', () => {
         entities: {},
         limit: 5,
         hasMore: true,
-
       },
     });
     thunk.api.get.mockReturnValue(Promise.resolve({ data }));

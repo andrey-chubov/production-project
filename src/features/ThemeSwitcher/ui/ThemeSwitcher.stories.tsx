@@ -14,7 +14,9 @@ export default {
   },
 } as ComponentMeta<typeof ThemeSwitcher>;
 
-const Template: ComponentStory<typeof ThemeSwitcher> = (args) => <ThemeSwitcher {...args} />;
+const Template: ComponentStory<typeof ThemeSwitcher> = (args) => (
+  <ThemeSwitcher {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Light = Template.bind({});

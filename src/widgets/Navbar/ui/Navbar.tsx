@@ -3,9 +3,7 @@ import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import {
-  getUserAuthData,
-} from '@/entities/User';
+import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
@@ -38,7 +36,11 @@ export const Navbar = memo(({ className }: NavBarProps) => {
   if (authData) {
     return (
       <header className={classNames(cls.Navbar, {}, [className])}>
-        <Text className={cls.appName} title={t('Новостной портал')} theme={TextTheme.INVERTED} />
+        <Text
+          className={cls.appName}
+          title={t('Новостной портал')}
+          theme={TextTheme.INVERTED}
+        />
         <AppLink
           to={getRouteArticleCreate()}
           theme={AppLinkTheme.SECONDARY}
@@ -46,23 +48,27 @@ export const Navbar = memo(({ className }: NavBarProps) => {
         >
           {t('Создать статью')}
         </AppLink>
-        <HStack gap='16' className={cls.actions}>
+        <HStack gap="16" className={cls.actions}>
           <NotificationButton />
           <AvatarDropdown />
         </HStack>
-
       </header>
     );
   }
 
   return (
     <header className={classNames(cls.Navbar, {}, [className])}>
-      <Button className={cls.links} theme={ButtonTheme.CLEAR_INVERTED} onClick={onOpenModal}>
+      <Button
+        className={cls.links}
+        theme={ButtonTheme.CLEAR_INVERTED}
+        onClick={onOpenModal}
+      >
         {t('Войти')}
       </Button>
 
-      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
-
+      {isAuthModal && (
+        <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+      )}
     </header>
   );
 });

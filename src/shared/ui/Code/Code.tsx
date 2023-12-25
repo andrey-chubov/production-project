@@ -8,8 +8,8 @@ import CopyIcon from '../../assets/icons/copy-20-20.svg';
 import { Button, ButtonTheme } from '../Button/Button';
 
 interface CodeProps {
-className?: string;
-text: string;
+  className?: string;
+  text: string;
 }
 
 export const Code = memo(({ className, text }: CodeProps) => {
@@ -18,13 +18,14 @@ export const Code = memo(({ className, text }: CodeProps) => {
   }, [text]);
   return (
     <pre className={classNames(cls.Code, {}, [className])}>
-      <Button theme={ButtonTheme.CLEAR} className={cls.copyBtn} onClick={onCopy}>
+      <Button
+        theme={ButtonTheme.CLEAR}
+        className={cls.copyBtn}
+        onClick={onCopy}
+      >
         <CopyIcon className={cls.copyIcon} />
       </Button>
-      <code>
-        {text}
-      </code>
+      <code>{text}</code>
     </pre>
-
   );
 });

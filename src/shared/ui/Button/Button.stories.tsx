@@ -19,100 +19,76 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary = Template.bind({});
 Primary.args = {
-
   children: 'Text',
-
 };
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
-
   children: 'Text',
-
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Clear = Template.bind({});
 Clear.args = {
-
   children: 'Text',
   theme: ButtonTheme.CLEAR,
-
 };
 export const ClearDark = Template.bind({});
 ClearDark.args = {
-
   children: 'Text',
   theme: ButtonTheme.CLEAR,
-
 };
 ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const ClearInverted = Template.bind({});
 ClearInverted.args = {
-
   children: 'Text',
   theme: ButtonTheme.CLEAR_INVERTED,
-
 };
 export const ClearInvertedDark = Template.bind({});
 ClearInvertedDark.args = {
-
   children: 'Text',
   theme: ButtonTheme.CLEAR_INVERTED,
-
 };
 ClearInvertedDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const Outline = Template.bind({});
 Outline.args = {
-
   children: 'Text',
   theme: ButtonTheme.OUTLINE,
-
 };
 
 export const OutlineSizeXL = Template.bind({});
 OutlineSizeXL.args = {
-
   children: 'Text',
   theme: ButtonTheme.OUTLINE,
   size: ButtonSize.XL,
-
 };
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
-
   children: 'Text',
   theme: ButtonTheme.OUTLINE,
-
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const OutlineDarkSizeL = Template.bind({});
 OutlineDarkSizeL.args = {
-
   children: 'Text',
   theme: ButtonTheme.OUTLINE,
   size: ButtonSize.L,
-
 };
 OutlineDarkSizeL.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const BackgroundInverted = Template.bind({});
 BackgroundInverted.args = {
-
   children: 'Text',
   theme: ButtonTheme.BACKGROUND_INVERTED,
 };
 
 export const OutlineInverted = Template.bind({});
 OutlineInverted.args = {
-
   children: 'Text',
   theme: ButtonTheme.OUTLINE_INVERTED,
-
 };
 
 export const Background = Template.bind({});
 Background.args = {
-
   children: 'Text',
   theme: ButtonTheme.BACKGROUND,
 };

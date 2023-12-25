@@ -10,11 +10,11 @@ import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';
 
 interface AvatarProps {
-className?: string;
-src?: string;
-alt?:string;
-size?: number;
-fallbackInverted?: boolean;
+  className?: string;
+  src?: string;
+  alt?: string;
+  size?: number;
+  fallbackInverted?: boolean;
 }
 
 export const Avatar = ({
@@ -40,7 +40,7 @@ export const Avatar = ({
       inverted={fallbackInverted}
     />
   );
-  const fallback = <Skeleton border='50%' width={size} height={size} />;
+  const fallback = <Skeleton border="50%" width={size} height={size} />;
   return (
     <AppImage
       src={src}

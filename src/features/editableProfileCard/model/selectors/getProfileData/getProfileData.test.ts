@@ -14,7 +14,8 @@ describe('getProfileData.test', () => {
       country: Country.Russia,
       city: 'Moscow',
       username: 'admin',
-      avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+      avatar:
+        'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
     };
     const state: DeepPartial<StateSchema> = {
       profile: {
@@ -24,7 +25,7 @@ describe('getProfileData.test', () => {
     expect(getProfileData(state as StateSchema)).toEqual(data);
   });
   test('should work with empty state ', () => {
-    const state: DeepPartial<StateSchema> = { };
+    const state: DeepPartial<StateSchema> = {};
     expect(getProfileData(state as StateSchema)).toEqual(undefined);
   });
 });

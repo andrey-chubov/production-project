@@ -15,20 +15,24 @@ export default {
   },
 } as ComponentMeta<typeof ProfileRating>;
 
-const Template: ComponentStory<typeof ProfileRating> = (args) => <ProfileRating {...args} />;
+const Template: ComponentStory<typeof ProfileRating> = (args) => (
+  <ProfileRating {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const withEstimation = Template.bind({});
 withEstimation.args = {
   profileId: '1',
 };
-withEstimation.decorators = [StoreDecorator({
-  user: {
-    authData: {
-      id: '2',
+withEstimation.decorators = [
+  StoreDecorator({
+    user: {
+      authData: {
+        id: '2',
+      },
     },
-  },
-})];
+  }),
+];
 withEstimation.parameters = {
   mockData: [
     {

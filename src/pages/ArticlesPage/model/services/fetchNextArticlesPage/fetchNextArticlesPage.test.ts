@@ -15,7 +15,6 @@ describe('fetchNextArticlesPage.test', () => {
         entities: {},
         limit: 5,
         hasMore: true,
-
       },
     });
 
@@ -33,7 +32,6 @@ describe('fetchNextArticlesPage.test', () => {
         entities: {},
         limit: 5,
         hasMore: false,
-
       },
     });
 
@@ -51,7 +49,6 @@ describe('fetchNextArticlesPage.test', () => {
         entities: {},
         limit: 5,
         hasMore: true,
-
       },
     });
 

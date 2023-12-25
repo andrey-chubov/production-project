@@ -4,7 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
@@ -20,10 +23,10 @@ import { loginByUsername } from '../../model/services/loginByUsername/loginByUse
 import { loginAction, loginReducer } from '../../model/slice/loginSlice';
 
 export interface LoginFormProps {
-className?: string
+  className?: string;
 }
 
-const initialReducers : ReducersList = {
+const initialReducers: ReducersList = {
   loginForm: loginReducer,
 };
 
@@ -36,13 +39,19 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   const isLoading = useSelector(getLoginIsLoading);
   const error = useSelector(getLoginError);
 
-  const onChangeUsername = useCallback((value: string) => {
-    dispatch(loginAction.setUsername(value));
-  }, [dispatch]);
+  const onChangeUsername = useCallback(
+    (value: string) => {
+      dispatch(loginAction.setUsername(value));
+    },
+    [dispatch],
+  );
 
-  const onChangePassword = useCallback((value:string) => {
-    dispatch(loginAction.setPassword(value));
-  }, [dispatch]);
+  const onChangePassword = useCallback(
+    (value: string) => {
+      dispatch(loginAction.setPassword(value));
+    },
+    [dispatch],
+  );
 
   const onLoginClick = useCallback(() => {
     dispatch(loginByUsername({ username, password }));
@@ -55,7 +64,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
         <Text title={t('Форма авторизации')} />
         {error && <Text text={t('error')} theme={TextTheme.ERROR} />}
         <Input
-          type='text'
+          type="text"
           placeholder={t('Введите имя')}
           className={cls.input}
           autoFocus
@@ -63,7 +72,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
           value={username}
         />
         <Input
-          type='text'
+          type="text"
           placeholder={t('Введите пароль')}
           className={cls.input}
           onChange={onChangePassword}
@@ -79,7 +88,6 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
         </Button>
       </div>
     </DynamicModuleLoader>
-
   );
 });
 

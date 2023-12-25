@@ -15,7 +15,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticlesPageFilters>;
 
-const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => <ArticlesPageFilters {...args} />;
+const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => (
+  <ArticlesPageFilters {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Light = Template.bind({});

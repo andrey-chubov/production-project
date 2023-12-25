@@ -16,7 +16,9 @@ export default {
   },
 } as ComponentMeta<typeof NotificationList>;
 
-const Template: ComponentStory<typeof NotificationList> = (args) => <NotificationList {...args} />;
+const Template: ComponentStory<typeof NotificationList> = (args) => (
+  <NotificationList {...args} />
+);
 
 const notification = {
   id: '1',
@@ -34,9 +36,11 @@ Light.parameters = {
       url: `${__API__}/notifications`,
       method: 'GET',
       status: 200,
-      response: [{ ...notification, id: '1' },
+      response: [
+        { ...notification, id: '1' },
         { ...notification, id: '2 ' },
-        { ...notification, id: '3' }],
+        { ...notification, id: '3' },
+      ],
     },
   ],
 };
@@ -49,9 +53,11 @@ Dark.parameters = {
       url: `${__API__}/notifications`,
       method: 'GET',
       status: 200,
-      response: [{ ...notification, id: '1' },
+      response: [
+        { ...notification, id: '1' },
         { ...notification, id: '2 ' },
-        { ...notification, id: '3' }],
+        { ...notification, id: '3' },
+      ],
     },
   ],
 };

@@ -15,7 +15,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticleTypeTabs>;
 
-const Template: ComponentStory<typeof ArticleTypeTabs> = (args) => <ArticleTypeTabs {...args} />;
+const Template: ComponentStory<typeof ArticleTypeTabs> = (args) => (
+  <ArticleTypeTabs {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Light = Template.bind({});

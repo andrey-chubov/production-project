@@ -15,7 +15,9 @@ export default {
   },
 } as ComponentMeta<typeof ForbiddenPage>;
 
-const Template: ComponentStory<typeof ForbiddenPage> = (args) => <ForbiddenPage />;
+const Template: ComponentStory<typeof ForbiddenPage> = (args) => (
+  <ForbiddenPage />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Light = Template.bind({});

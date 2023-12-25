@@ -4,7 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import {
-  getUserAuthData, isUserAdmin, isUserManager, userAction,
+  getUserAuthData,
+  isUserAdmin,
+  isUserManager,
+  userAction,
 } from '@/entities/User';
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -13,7 +16,7 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 
 interface AvatarDropdownProps {
-className?: string
+  className?: string;
 }
 
 export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
@@ -35,13 +38,15 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
     <Dropdown
       className={classNames('', {}, [className])}
       // className={cls.dropdown}
-      direction='bottom right'
+      direction="bottom right"
       items={[
         ...(isAdminPanelAvailable
-          ? [{
-            content: t('Админка'),
-            href: getRouteAdmin(),
-          }]
+          ? [
+              {
+                content: t('Админка'),
+                href: getRouteAdmin(),
+              },
+            ]
           : []),
         {
           content: t('Профиль'),

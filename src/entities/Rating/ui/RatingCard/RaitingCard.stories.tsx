@@ -15,7 +15,9 @@ export default {
   },
 } as ComponentMeta<typeof RatingCard>;
 
-const Template: ComponentStory<typeof RatingCard> = (args) => <RatingCard {...args} />;
+const Template: ComponentStory<typeof RatingCard> = (args) => (
+  <RatingCard {...args} />
+);
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Light = Template.bind({});
