@@ -4,11 +4,13 @@ const path = require('path');
 
 const jsonServer = require('json-server');
 
-const options = {
+const isHttps = false;
+if (isHttps) {
+  const options = {
   key: fs.readFileSync(path.resolve(__dirname, '/etc/letsencrypt/live/xn----7sbbn6aiige3b6c6e.su/privkey.pem')),
   cert: fs.readFileSync(path.resolve(__dirname, '/etc/letsencrypt/live/xn----7sbbn6aiige3b6c6e.su/fullchain.pem')),
 };
-
+}
 
 
 const server = jsonServer.create();
@@ -62,8 +64,15 @@ server.use((req, res, next) => {
 server.use(router);
 
 // запуск сервера
-const PORT = 8443;
+if (isHttps) {
+  const PORT = 8443;
 const httpServer = https.createServer(options, server);
 httpServer.listen(PORT, () => {
   console.log(`server is running on ${PORT} port`);
 });
+} else {
+  const PORT = 8000;
+  server.listen(PORT, () => {
+  console.log(`server is running on ${PORT} port`);
+});
+}

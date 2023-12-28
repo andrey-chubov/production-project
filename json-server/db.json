@@ -592,6 +592,10 @@
       "id": "1",
       "username": "admin",
       "roles": ["ADMIN", "USER"],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isConterEnabled": true
+      },
       "password": "123",
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
     },
@@ -600,6 +604,10 @@
       "username": "user",
       "password": "123",
       "roles": ["USER"],
+         "features": {
+        "isArticleRatingEnabled": false,
+        "isConterEnabled": false
+      },
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     },
     {
@@ -607,6 +615,10 @@
       "username": "testuser",
       "password": "123",
       "roles": ["MANAGER"],
+           "features": {
+        "isArticleRatingEnabled": false,
+        "isConterEnabled": true
+      },
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],

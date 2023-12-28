@@ -3,10 +3,12 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetails } from '@/entities/Article';
+import { Counter } from '@/entities/Counter';
 import { ArticleDetailsComment } from '@/features/ArticleDetailsComment';
 import { ArticleRating } from '@/features/articleRating';
 import { ArticleRecomendationsList } from '@/features/articleRecomendationsList';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { getFeaturesFlag } from '@/shared/lib/features';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 
@@ -20,6 +22,8 @@ interface ArticleDetailsPageProps {
 
 const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
   const { id } = useParams<{ id: string }>();
+  const isArticleRatingEnabled = getFeaturesFlag('isArticleRatingEnabled');
+  const isCounterEnabled = getFeaturesFlag('isConterEnabled');
 
   // if (!id) {
   //   return null;
@@ -30,7 +34,8 @@ const ArticleDetailsPage = memo(({ className }: ArticleDetailsPageProps) => {
       <VStack gap="16" max>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        <ArticleRating articleId={id!} />
+        {isCounterEnabled && <Counter />}
+        {isArticleRatingEnabled && <ArticleRating articleId={id!} />}
         <ArticleRecomendationsList />
         <ArticleDetailsComment id={id} />
       </VStack>
