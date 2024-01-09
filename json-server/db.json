@@ -604,7 +604,7 @@
       "username": "user",
       "password": "123",
       "roles": ["USER"],
-         "features": {
+      "features": {
         "isArticleRatingEnabled": false,
         "isConterEnabled": false
       },
@@ -615,9 +615,9 @@
       "username": "testuser",
       "password": "123",
       "roles": ["MANAGER"],
-           "features": {
-        "isArticleRatingEnabled": false,
-        "isConterEnabled": true
+      "features": {
+       "isArticleRatingEnabled": false,
+       "isConterEnabled": true
       },
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }

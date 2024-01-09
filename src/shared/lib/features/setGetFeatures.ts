@@ -1,4 +1,4 @@
-import { FeaturesFlags } from '@/shared/types/featuresFlags';
+import { FeaturesFlags } from '../../types/featuresFlags';
 
 let featuresFlags: FeaturesFlags;
 

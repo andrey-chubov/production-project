@@ -66,6 +66,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-undef': 'off',
     "react/jsx-max-props-per-line": ['error', { "maximum": 4 }],
+    "react/no-unstable-nested-components": 'warn',
     'react/no-array-index-key': 'off',
     'andrey-plugin/path-checker': ['error', { alias: '@' }],
     'andrey-plugin/public-api-imports': [
