@@ -1,6 +1,6 @@
 import { FeaturesFlags } from '../../types/featuresFlags';
 
-let featuresFlags: FeaturesFlags;
+let featuresFlags: FeaturesFlags = {};
 
 export function setFeatureFlags(newFeatureFlags?: FeaturesFlags): void {
   if (newFeatureFlags) {
@@ -9,5 +9,5 @@ export function setFeatureFlags(newFeatureFlags?: FeaturesFlags): void {
 }
 
 export function getFeaturesFlag(flag: keyof FeaturesFlags) {
-  return featuresFlags[flag];
+  return featuresFlags?.[flag];
 }
