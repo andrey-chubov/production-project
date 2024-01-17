@@ -3,10 +3,10 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button';
-import { Input } from '@/shared/ui/Input';
+import { Button } from '@/shared/ui/deprecated/Button';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { TextAlign, TextTheme, Text } from '@/shared/ui/deprecated/Text';
 import { HStack } from '@/shared/ui/Stack';
-import { TextAlign, TextTheme, Text } from '@/shared/ui/Text';
 
 import cls from './AddCommentForm.module.scss';
 
