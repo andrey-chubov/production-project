@@ -38,17 +38,6 @@ ClearDark.args = {
   variant: 'clear',
 };
 ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
-export const ClearInverted = Template.bind({});
-ClearInverted.args = {
-  children: 'Text',
-  variant: 'clearInverted',
-};
-export const ClearInvertedDark = Template.bind({});
-ClearInvertedDark.args = {
-  children: 'Text',
-  variant: 'clearInverted',
-};
-ClearInvertedDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const Outline = Template.bind({});
 Outline.args = {
   children: 'Text',
@@ -74,42 +63,24 @@ OutlineDarkSizeL.args = {
   size: 'l',
 };
 OutlineDarkSizeL.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const BackgroundInverted = Template.bind({});
-BackgroundInverted.args = {
-  children: 'Text',
-  variant: 'backgroundInverted',
-};
-
-export const OutlineInverted = Template.bind({});
-OutlineInverted.args = {
-  children: 'Text',
-  variant: 'outlineInverted',
-};
-
-export const Background = Template.bind({});
-Background.args = {
-  children: 'Text',
-  variant: 'background',
-};
 export const Square = Template.bind({});
 Square.args = {
   children: '>',
   square: true,
-  variant: 'backgroundInverted',
+  variant: 'filled',
 };
 export const SquareSizeL = Template.bind({});
 SquareSizeL.args = {
   children: '>',
   square: true,
-  variant: 'backgroundInverted',
+  variant: 'filled',
   size: 'l',
 };
 export const SquareSizeXL = Template.bind({});
 SquareSizeXL.args = {
   children: '>',
   square: true,
-  variant: 'backgroundInverted',
+  variant: 'filled',
   size: 'xl',
 };
 export const Disabled = Template.bind({});

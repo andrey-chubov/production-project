@@ -4,8 +4,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Card.module.scss';
 
-export type CardVariant = 'normal' | 'outlined';
+export type CardVariant = 'normal' | 'outlined' | 'light';
 export type CardPadding = '0' | '8' | '16' | '24';
+export type CardBorder = 'round' | 'normal';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -13,13 +14,14 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   variant?: CardVariant;
   max?: boolean;
   padding?: CardPadding;
+  border?: CardBorder;
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
-  0: 'gap_0',
-  8: 'gap_8',
-  16: 'gap_16',
-  24: 'gap_24',
+  '0': 'gap_0',
+  '8': 'gap_8',
+  '16': 'gap_16',
+  '24': 'gap_24',
 };
 
 export const Card = memo(
@@ -28,18 +30,23 @@ export const Card = memo(
     children,
     padding = '8',
     variant = 'normal',
+    border = 'normal',
     max,
     ...otherProps
-  }: CardProps) => (
-    <div
-      className={classNames(cls.Card, { [cls.max]: max }, [
-        className,
-        cls[variant],
-        mapPaddingToClass[padding],
-      ])}
-      {...otherProps}
-    >
-      {children}
-    </div>
-  ),
+  }: CardProps) => {
+    const paddingClass = mapPaddingToClass[padding];
+    return (
+      <div
+        className={classNames(cls.Card, { [cls.max]: max }, [
+          className,
+          cls[variant],
+          cls[paddingClass],
+          cls[border],
+        ])}
+        {...otherProps}
+      >
+        {children}
+      </div>
+    );
+  },
 );

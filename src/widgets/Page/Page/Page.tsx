@@ -32,7 +32,15 @@ export const Page = memo((props: PageProps) => {
     getUIScrollByPath(state, pathname),
   );
 
-  useInfiniteScrol({ callback: props.onScrollEnd, triggerRef, wrapperRef });
+  useInfiniteScrol({
+    callback: props.onScrollEnd,
+    triggerRef,
+    wrapperRef: toggleFeatures({
+      name: 'isAppRedesigned',
+      on: () => undefined,
+      off: () => wrapperRef,
+    }),
+  });
 
   useInitialEffect(() => {
     wrapperRef.current.scrollTop = scrollPosition;

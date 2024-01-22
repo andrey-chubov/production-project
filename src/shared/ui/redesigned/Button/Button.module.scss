@@ -8,17 +8,14 @@
   }
 }
 
-.clear,
-.clearInverted {
+.clear {
   padding: 0;
   border: none;
   background: none;
   outline: none;
 }
 
-.clearInverted {
-  color: var(--inverted-primary-color);
-}
+
 
 .outline {
   border: 1px solid var(--primary-color);
@@ -26,29 +23,15 @@
   color: var(--primary-color);
 }
 
-.outline_red {
-  border: 1px solid var(--red-light);
-  background: none;
-  color: var(--red-dark);
-}
-
-.outlineInverted {
-  border: 1px solid var(--inverted-primary-color);
-  background: none;
-  color: var(--inverted-primary-color);
-}
-
-.background {
-  background: var(--bg-color);
-  color: var(--primary-color);
+.filled {
+  background: var(--light-bg-redesigned);
   border: none;
+  outline: none;
+  border-radius: 34px;
+  padding: 8 16px;
 }
 
-.backgroundInverted {
-  background: var(--inverted-bg-color);
-  color: var(--inverted-primary-color);
-  border: none;
-}
+
 
 .square {
   padding: 0;

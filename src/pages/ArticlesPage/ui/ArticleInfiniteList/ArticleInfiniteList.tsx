@@ -12,6 +12,7 @@ import {
 } from '@/entities/Article';
 import { ARTICLE_INDEX } from '@/shared/const/localstorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 
 import cls from './ArticleInfiniteList.module.scss';
@@ -103,51 +104,105 @@ export const ArticleInfiniteList = ({
 
   if (view === ArticleView.SMALL) {
     return (
-      <div
-        className={classNames(cls.ArticleInfiniteList, {}, [
-          className,
-          cls[view],
-        ])}
-        data-testid="ArticleInfinityList"
-      >
-        <VirtuosoGrid
-          totalCount={articles.length}
-          data={articles}
-          initialTopMostItemIndex={initMostIndex}
-          itemContent={itemRender}
-          listClassName={cls.itemWrapper}
-          endReached={loadMore}
-          components={{
-            Header,
-            ScrollSeekPlaceholder: ItemContainerComp(view),
-          }}
-          scrollSeekConfiguration={{
-            enter: (velocity) => Math.abs(velocity) > 200,
-            exit: (velocity) => Math.abs(velocity) < 30,
-          }}
-        />
-      </div>
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <div
+            className={classNames(cls.ArticleInfiniteList, {}, [
+              className,
+              cls[view],
+            ])}
+            data-testid="ArticleInfinityList"
+          >
+            <VirtuosoGrid
+              totalCount={articles.length}
+              data={articles}
+              initialTopMostItemIndex={initMostIndex}
+              itemContent={itemRender}
+              listClassName={cls.itemWrapper}
+              endReached={loadMore}
+              components={{
+                ScrollSeekPlaceholder: ItemContainerComp(view),
+              }}
+              scrollSeekConfiguration={{
+                enter: (velocity) => Math.abs(velocity) > 200,
+                exit: (velocity) => Math.abs(velocity) < 30,
+              }}
+            />
+          </div>
+        }
+        off={
+          <div
+            className={classNames(cls.ArticleInfiniteList, {}, [
+              className,
+              cls[view],
+            ])}
+            data-testid="ArticleInfinityList"
+          >
+            <VirtuosoGrid
+              totalCount={articles.length}
+              data={articles}
+              initialTopMostItemIndex={initMostIndex}
+              itemContent={itemRender}
+              listClassName={cls.itemWrapper}
+              endReached={loadMore}
+              components={{
+                Header,
+                ScrollSeekPlaceholder: ItemContainerComp(view),
+              }}
+              scrollSeekConfiguration={{
+                enter: (velocity) => Math.abs(velocity) > 200,
+                exit: (velocity) => Math.abs(velocity) < 30,
+              }}
+            />
+          </div>
+        }
+      />
     );
   }
 
   return (
-    <div
-      className={classNames(cls.ArticleInfiniteList, {}, [
-        className,
-        cls[view],
-      ])}
-    >
-      <Virtuoso
-        style={{ height: '100%' }}
-        data={articles}
-        itemContent={itemRender}
-        endReached={loadMore}
-        initialTopMostItemIndex={initMostIndex}
-        components={{
-          Header,
-          Footer,
-        }}
-      />
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <div
+          className={classNames(cls.ArticleInfiniteList, {}, [
+            className,
+            cls[view],
+          ])}
+        >
+          <Virtuoso
+            style={{ height: '100%' }}
+            data={articles}
+            itemContent={itemRender}
+            endReached={loadMore}
+            initialTopMostItemIndex={initMostIndex}
+            components={{
+              Footer,
+            }}
+          />
+        </div>
+      }
+      off={
+        <div
+          className={classNames(cls.ArticleInfiniteList, {}, [
+            className,
+            cls[view],
+          ])}
+        >
+          <Virtuoso
+            style={{ height: '100%' }}
+            data={articles}
+            itemContent={itemRender}
+            endReached={loadMore}
+            initialTopMostItemIndex={initMostIndex}
+            components={{
+              Header,
+              Footer,
+            }}
+          />
+        </div>
+      }
+    />
   );
 };
