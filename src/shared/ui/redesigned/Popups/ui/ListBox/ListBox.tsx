@@ -2,6 +2,7 @@ import { Fragment, ReactNode, useMemo } from 'react';
 
 import { Listbox as HListBox } from '@headlessui/react';
 
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import CheckIcon from '@/shared/assets/icons/check.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropDownDirection } from '@/shared/types/ui';
@@ -59,7 +60,11 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
         disabled={readonly}
       >
         <HListBox.Button className={cls.trigger}>
-          <Button variant="filled" disabled={readonly}>
+          <Button
+            variant="filled"
+            disabled={readonly}
+            addonRight={<Icon Svg={ArrowIcon} />}
+          >
             {selectedItem?.content ?? defaultValue}
           </Button>
         </HListBox.Button>

@@ -4,6 +4,7 @@
 
 .normal {
   background: var(--dark-bg-redesigned);
+  border-radius: 12px;
 }
 
 .outlined {
@@ -18,10 +19,6 @@
   width: 100%;
 }
 
-.normal {
-  border-radius: 12px;
-}
-
 .round {
   border-radius: 40px;
 }
@@ -33,9 +30,11 @@
 .gap_8 {
   padding: 8px;
 }
+
 .gap_16 {
   padding: 16px;
 }
+
 .gap_24 {
   padding: 24px;
 }

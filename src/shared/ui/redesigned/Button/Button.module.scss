@@ -1,10 +1,17 @@
 .Button {
+  display: flex;
+  align-items: center;
   cursor: pointer;
   color: var(--text-redesigned);
-  padding: 6px 15px;
+  padding: 8px 16px;
 
   &:hover {
     color: var(--accent-redesigned);
+
+    .addonLeft,
+    .addonRight svg {
+      color: var(--accent-redesigned);
+    }
   }
 }
 
@@ -14,8 +21,6 @@
   background: none;
   outline: none;
 }
-
-
 
 .outline {
   border: 1px solid var(--primary-color);
@@ -28,10 +33,7 @@
   border: none;
   outline: none;
   border-radius: 34px;
-  padding: 8 16px;
 }
-
-
 
 .square {
   padding: 0;
@@ -73,4 +75,19 @@
 
 .fullwidth {
   width: 100%;
+}
+
+.addonLeft,
+.addonRight {
+  display: flex;
+  align-items: center;
+}
+
+.addonLeft,
+.addonRight svg {
+  color: var(--hint-redesigned);
+}
+
+.withAddon {
+  padding: 0 16px;
 }

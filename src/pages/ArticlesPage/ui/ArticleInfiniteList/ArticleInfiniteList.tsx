@@ -117,6 +117,7 @@ export const ArticleInfiniteList = ({
             <VirtuosoGrid
               totalCount={articles.length}
               data={articles}
+              overscan={20}
               initialTopMostItemIndex={initMostIndex}
               itemContent={itemRender}
               listClassName={cls.itemWrapper}
@@ -125,7 +126,7 @@ export const ArticleInfiniteList = ({
                 ScrollSeekPlaceholder: ItemContainerComp(view),
               }}
               scrollSeekConfiguration={{
-                enter: (velocity) => Math.abs(velocity) > 200,
+                enter: (velocity) => Math.abs(velocity) > 40,
                 exit: (velocity) => Math.abs(velocity) < 30,
               }}
             />
