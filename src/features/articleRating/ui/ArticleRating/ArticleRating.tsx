@@ -18,7 +18,7 @@ export interface ArticleRatingProps {
 }
 
 const ArticleRating = ({ className, articleId }: ArticleRatingProps) => {
-  const { t } = useTranslation('article-details');
+  const { t } = useTranslation('article');
   const userData = useSelector(getUserAuthData);
   const { data, isLoading } = useGetArticleRating({
     userId: userData?.id ?? '',

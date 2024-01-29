@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
@@ -30,6 +29,7 @@ export const updateFeatureFlag = createAsyncThunk<
       }),
     );
     window.location.reload();
+    return undefined;
   } catch (error) {
     return rejectWithValue('error');
   }

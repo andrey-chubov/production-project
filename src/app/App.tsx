@@ -33,6 +33,7 @@ export const App = () => {
       feature="isAppRedesigned"
       off={
         <div
+          id="app"
           className={classNames('app', { hovered: true, selected: false }, [
             theme,
           ])}
@@ -48,6 +49,7 @@ export const App = () => {
       }
       on={
         <div
+          id="app"
           className={classNames(
             'app_redesigned',
             { hovered: true, selected: false },
