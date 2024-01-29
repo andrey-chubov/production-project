@@ -12,7 +12,7 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import { ProfileCardProps } from '../ProfileCard/ProfileCard';
 
 export const ProfileCardRedesignedSkeleton = () => (
-  <Card padding="24" max>
+  <Card padding="16" border="partial" max>
     <VStack gap="32" max>
       <HStack justify="center" max>
         <Skeleton border="100%" width={128} height={128} />
@@ -72,7 +72,13 @@ export const ProfileCardRedesigned = (props: ProfileCardProps) => {
   };
 
   return (
-    <Card max padding="24" className={className} data-testid="ProfileCard">
+    <Card
+      max
+      padding="16"
+      border="partial"
+      className={className}
+      data-testid="ProfileCard"
+    >
       <VStack gap="32" max>
         {data?.avatar && (
           <HStack justify="center" max>
