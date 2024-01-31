@@ -34,8 +34,7 @@
 .itemWrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 8px;
+  justify-content: space-around;
   margin: 0 30px;
 }
 

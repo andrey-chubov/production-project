@@ -53,7 +53,6 @@ export const ArticleListItemRedesigned = memo(
         <Card
           data-testid="ArticleListItem"
           padding="24"
-          max
           className={classNames(cls.ArticleListItem, {}, [
             className,
             cls[view],

@@ -10,7 +10,7 @@ import {
   getRouteProfile,
 } from '@/shared/const/router';
 
-import { getSidebarItems } from './getSidebarItems';
+import { useGetSidebarItems } from './getSidebarItems';
 import { SidebarItemType } from '../types/sidebarItem';
 
 describe('getSidebarItems.test', () => {
@@ -59,10 +59,11 @@ describe('getSidebarItems.test', () => {
         },
       },
     };
-    expect(getSidebarItems(state as StateSchema)).toEqual(data);
+
+    expect(useGetSidebarItems()).toEqual(data);
   });
   test('should work with empty state ', () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getSidebarItems(state as StateSchema)).toEqual(unReg);
+    expect(useGetSidebarItems()).toEqual(unReg);
   });
 });

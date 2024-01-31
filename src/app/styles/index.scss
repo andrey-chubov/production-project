@@ -6,6 +6,7 @@
 
 body {
   font-size: var(--font-m);
+  overflow-y: hidden;
 }
 
 .app {
@@ -33,12 +34,31 @@ body {
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--card-bg);
+  background: var(--light-bg-redesigned);
 
   /* цвет дорожки */
 }
 
 *::-webkit-scrollbar-thumb {
+  background: var(--icon-redesigned);
+  border: 1px solid var(--accent-redesigned);
+  border-radius: 20px;
+}
+
+.app *::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+
+  /* ширина scrollbar */
+}
+
+.app *::-webkit-scrollbar-track {
+  background: var(--card-bg);
+
+  /* цвет дорожки */
+}
+
+.app *::-webkit-scrollbar-thumb {
   background-color: var(--inverted-primary-color);
 
   /* цвет плашки */

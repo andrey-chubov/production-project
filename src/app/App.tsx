@@ -3,6 +3,7 @@ import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getUserInited, initAuthData } from '@/entities/User';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
@@ -21,11 +22,30 @@ export const App = () => {
   const inited = useSelector(getUserInited);
 
   useEffect(() => {
-    dispatch(initAuthData());
-  }, [dispatch]);
+    if (!inited) {
+      dispatch(initAuthData());
+    }
+  }, [dispatch, inited]);
 
   if (!inited) {
-    return <PageLoader />;
+    return (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        off={<PageLoader />}
+        on={
+          <div
+            id="app"
+            className={classNames(
+              'app_redesigned',
+              { hovered: true, selected: false },
+              [theme],
+            )}
+          >
+            <AppLoaderLayout />
+          </div>
+        }
+      />
+    );
   }
 
   return (

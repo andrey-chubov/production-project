@@ -126,8 +126,8 @@ export const ArticleInfiniteList = ({
                 ScrollSeekPlaceholder: ItemContainerComp(view),
               }}
               scrollSeekConfiguration={{
-                enter: (velocity) => Math.abs(velocity) > 40,
-                exit: (velocity) => Math.abs(velocity) < 30,
+                enter: (velocity) => Math.abs(velocity) > 200,
+                exit: (velocity) => Math.abs(velocity) < 50,
               }}
             />
           </div>
