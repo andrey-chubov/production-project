@@ -1,0 +1,16 @@
+.ArticlesPage {
+  flex-grow: 1;
+  padding: 20px 20px 20px 45px;
+  height: calc(100vh - var(--navbar-height));
+  overflow-y: auto;
+  flex-shrink: 100;
+
+  .list {
+    margin-top: 30px;
+  }
+}
+
+.ArticlesPageRedesigned {
+  width: 95%;
+  height: calc(100vh - var(--navbar-height));
+}

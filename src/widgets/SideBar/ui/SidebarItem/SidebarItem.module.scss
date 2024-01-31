@@ -1,0 +1,44 @@
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.links {
+  margin-left: 10px;
+  opacity: 1;
+}
+
+.icon {
+  fill: var(--inverted-primary-color);
+}
+
+.collapsed {
+  .links {
+    opacity: 0;
+    transition: 0.2s opacity;
+    width: 0;
+  }
+}
+
+.itemRedesigned {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.collapsedRedesigned {
+  padding: 0;
+  justify-content: center;
+
+  .links {
+    opacity: 0;
+    width: 0;
+    margin: 0;
+  }
+}
+
+.active {
+  border-left: 2px solid var(--accent-redesigned);
+  background: linear-gradient(90deg, rgb(83 218 255 / 30%) 1.15%, rgb(94 211 243 / 0%) 99.97%);
+}

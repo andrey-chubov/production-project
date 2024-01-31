@@ -1,0 +1,20 @@
+.CommentCard {
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+}
+.CommentCardRedesigned {
+  border: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  margin-left: 10px;
+}
+
+.loading {
+  border: none;
+}
